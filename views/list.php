@@ -21,10 +21,14 @@ if ($events) {
         echo '<hr>'.PHP_EOL;
         echo 'Stream: ';
         echo empty($ev->event['stream']) ? 'k.A.'.PHP_EOL : $ev->event['stream'].PHP_EOL;
-        echo '<br>gültig ab: ';
-        echo empty($ev->event['from']) ? 'k.A'.PHP_EOL : $ev->event['from'].PHP_EOL;
-        echo ' bis: ';
-        echo empty($ev->event['to']) ? 'k.A'.PHP_EOL : $ev->event['to'].PHP_EOL;
+        if ($ev->event['permalink']) {
+            echo '<br>Permalink'.PHP_EOL;
+        } else {
+            echo '<br>gültig ab: ';
+            echo empty($ev->event['from']) ? 'k.A'.PHP_EOL : $ev->event['from'].PHP_EOL;
+            echo ' bis: ';
+            echo empty($ev->event['to']) ? 'k.A'.PHP_EOL : $ev->event['to'].PHP_EOL;
+        }
         echo '<hr>'.PHP_EOL;
         echo 'Icon: ';
         echo empty($ev->event['icon']) ? 'k.A'.PHP_EOL : '<a href="'.$ev->event['icon']. '" target="_blank">' .$ev->event['icon'].'</a>'.PHP_EOL;
