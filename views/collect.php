@@ -45,6 +45,9 @@ include HEADER;
                 <tr><td class="desc_form"><label for="to">gültig bis:</td>
                     <td><input type="datetime-local" class="short" name="to" id="to" form="n"></label>
                     </td></tr>
+                <tr><td class="desc_form"><label for="to">dauerhaft gültig (Permastream):</td>
+                    <td><input type="checkbox" class="permalink" name="permalink" id="permalink" form="n"></label>
+                    </td></tr>
                 <tr><td class="desc_form"><label for="icon">Icon URL:</td>
                     <td><input type="text" class="long" name="icon" id="icon" form="n"></label>
                     </td></tr>

@@ -54,6 +54,10 @@ if (isset($c_pars['item'])) {
                             <td><input type="datetime-local" class="short" name="to" id="to" form="n"
                                        value="<?php echo str_replace(' ', 'T', $ev->event['to']); ?>"></label>
                             </td></tr>
+                        <tr><td class="desc_form"><label for="to">dauerhaft gültig (Permastream):</td>
+                            <td><input type="checkbox" class="permalink" name="permalink" id="permalink" form="n"
+                                <?php echo ($ev->event['permalink']) ? ' checked' : ''; ?> ></label>
+                            </td></tr>
                         <tr><td class="desc_form"><label for="icon">Icon URL:</td>
                             <td><input type="text" class="long" name="icon" id="icon" form="n"
                                        value="<?php echo $ev->event['icon']; ?>"></label>

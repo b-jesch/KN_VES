@@ -16,6 +16,7 @@ class Event
             'stream' => $pars['stream'],
             'from' => str_replace('T', ' ', $pars['from']),
             'to' => str_replace('T', ' ', $pars['to']),
+            'permalink' => (isset($pars['permalink'])) ? true : false,
             'icon' => $pars['icon'],
             'fanart' => $pars['fanart'],
             'plot' => $pars['plot'],
