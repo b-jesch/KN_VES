@@ -66,8 +66,9 @@ switch ($c_pars['site']) {
         if (is_file(DATA.$c_pars['item'])) {
             unlink(DATA.$c_pars['item']);
             require VIEWS.LISTVIEW;
-            break;
         }
+        break;
+
     case 'login':
         $title = TITLE.'Check In';
         require VIEWS.DEFAULTPAGE;

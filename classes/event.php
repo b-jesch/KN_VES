@@ -5,6 +5,12 @@ class Event
     public $event = NULL;
     public $raw_data = NULL;
 
+    function __construct() {
+        if (!is_dir(DATA)) {
+            mkdir(DATA);
+        }
+    }
+
     function create($pars, $user, $user_id) {
         $this->event = array(
             'user' => $user,
@@ -14,6 +20,7 @@ class Event
             'event' => $pars['event'],
             'genre' => $pars['genre'],
             'stream' => $pars['stream'],
+            'isyoutube' => (isset($pars['isyoutube'])) ? true : false,
             'from' => str_replace('T', ' ', $pars['from']),
             'to' => str_replace('T', ' ', $pars['to']),
             'permalink' => (isset($pars['permalink'])) ? true : false,

@@ -39,6 +39,9 @@ include HEADER;
                 <tr><td class="desc_form"><label for="stream">Stream URL:</td>
                     <td><input type="text" class="long" name="stream" id="stream" form="n"></label>
                     </td></tr>
+                <tr><td class="desc_form"><label for="isyoutube">Youtube Link:</td>
+                    <td><input type="checkbox" name="isyoutube" id="isyoutube" form="n"></label>
+                    </td></tr>
                 <tr><td class="desc_form"><label for="from">gültig ab:</td>
                     <td><input type="datetime-local" class="short" name="from" id="from" form="n"></label>
                     </td></tr>
@@ -46,7 +49,7 @@ include HEADER;
                     <td><input type="datetime-local" class="short" name="to" id="to" form="n"></label>
                     </td></tr>
                 <tr><td class="desc_form"><label for="to">dauerhaft gültig (Permastream):</td>
-                    <td><input type="checkbox" class="permalink" name="permalink" id="permalink" form="n"></label>
+                    <td><input type="checkbox" name="permalink" id="permalink" form="n"></label>
                     </td></tr>
                 <tr><td class="desc_form"><label for="icon">Icon URL:</td>
                     <td><input type="text" class="long" name="icon" id="icon" form="n"></label>
