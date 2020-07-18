@@ -56,7 +56,7 @@ if (isset($c_pars['item'])) {
                             </td></tr>
                         <tr><td class="desc_form"><label for="to">dauerhaft gültig (Permastream):</td>
                             <td><input type="checkbox" class="permalink" name="permalink" id="permalink" form="n"
-                                <?php echo ($ev->event['permalink']) ? ' checked' : ''; ?> ></label>
+                                <?php echo ($ev->event['permalink']) ? ' checked' : ''; ?>></label>
                             </td></tr>
                         <tr><td class="desc_form"><label for="icon">Icon URL:</td>
                             <td><input type="text" class="long" name="icon" id="icon" form="n"
