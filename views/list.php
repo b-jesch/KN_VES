@@ -16,7 +16,7 @@ if ($events) {
         $ev = new Event();
         $ev->read($event);
         echo '<h3>'.$ev->event['event_date'].'</h3>'.PHP_EOL;
-        echo '<h2>'.$ev->event['event'].' ['.$ev->event[genre].']</h2>'.PHP_EOL;
+        echo '<h2>'.$ev->event['event'].' ['.$ev->event['genre'].']</h2>'.PHP_EOL;
         echo '<p>'.nl2br($ev->event['plot']).'</p>'.PHP_EOL;
         echo '<hr>'.PHP_EOL;
         echo 'Stream: ';
