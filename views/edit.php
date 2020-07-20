@@ -26,7 +26,7 @@ if (isset($c_pars['item'])) {
                     <table><tr><td class="desc_form"><label for="id">Kodinerds User ID: </td>
                             <td>
                                 <input type="text" class="short" name="id" id="id" form="n"
-                                       value="<?php echo $_SESSION['id'];  ?>"readonly></label>
+                                       value="<?php echo $_SESSION['id'];  ?>" readonly></label>
                             </td></tr>
                         <tr><td colspan="2"><hr></td></tr>
                         <tr><td class="desc_form"><label for="event_date">Startdatum:</td>
