@@ -13,7 +13,7 @@ include HEADER;
 ?>
 
 <div class="main_content">
-<form name="n" id="n" action="<?php echo ROOT.CONTROLLER; ?>" method="post">
+<form name="n" id="n" action="<?php echo CONTROLLER; ?>" method="post">
         <div class="content">
             <h1><?php echo $title; ?></h1>
             <p>Du bist ein Mitglied der Kodinerds Community und möchtest Informationen und Streaming-Details zu interessanten

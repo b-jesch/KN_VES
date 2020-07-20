@@ -47,7 +47,7 @@ if ($events) {
 }
 ?>
 
-<form name="n" id="n" action="<?php echo ROOT.CONTROLLER; ?>" method="post">
+<form name="n" id="n" action="<?php echo CONTROLLER; ?>" method="post">
     <input type="submit" class="button" name="add" value="Hinzufügen">
     <input type="hidden" name="site" value="collect_event">
 </form>
