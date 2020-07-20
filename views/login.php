@@ -17,16 +17,15 @@ include HEADER;
         <div class="content">
             <h1><?php echo $title; ?></h1>
             <p>Du bist ein Mitglied der Kodinerds Community und möchtest Informationen und Streaming-Details zu interessanten
-                Events für das Kodinerds Streaming Addon einpflegen? Dazu benötigen wir von Deinem Kodinerds Account den
-                Usernamen sowie Deine User-ID.
+                Events für das Kodinerds Streaming Addon einpflegen? Du kannst dich mit deinen Kodinerds Zugangsdaten einloggen.
             </p>
             <hr>
             <table><tr><td class="desc_form"><label for="user">Kodinerds Username: </td>
                     <td>
-                        <input type="text" name="user" id="user" form="n"></label>
+                        <input type="text" name="username" id="username" form="n"></label>
                     </td></tr>
-                <tr><td class="desc_form"><label for="id">Kodinerds User ID:</td>
-                    <td><input type="text" name="id" id="id" form="n"></label>
+                <tr><td class="desc_form"><label for="id">Kodinerds Password:</td>
+                    <td><input type="password" name="password" id="password" form="n"></label>
                     </td></tr>
                 <tr><td colspan="2" class="center">
                         <input class="button" type="submit" name='check' value="Check In">
