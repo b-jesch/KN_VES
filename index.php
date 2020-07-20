@@ -72,6 +72,7 @@ switch ($c_pars['site']) {
         $ev = new Event();
         $ev->create($c_pars, $_SESSION['user'], $_SESSION['id']);
         $ev->persist();
+        $title = TITLE.'Events auflisten';
         require VIEWS.LISTVIEW;
         break;
 
