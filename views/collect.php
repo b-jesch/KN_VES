@@ -124,7 +124,7 @@ include HEADER;
                     <td colspan="2" class="center">
                         <input class="button" type="submit" name='add' value="Erstellen">
                         <input class="button" type="button" name='abort' value="Abbrechen"
-                               onclick="document.location.href='<?php echo ROOT.'?abort'; ?>';">
+                               onclick="document.location.href='?abort';">
                     </td>
                 </tr>
             </table>

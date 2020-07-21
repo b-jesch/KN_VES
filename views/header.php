@@ -8,6 +8,6 @@
     <meta name="format-detection" content="telephone=yes">
     <meta name="description" content="Eventserver der Kodinerds Community"/>
     <meta name="keywords" content="Events, Livestream, Kodinerds" />
-    <script src="<?php echo ROOT.FUNCTIONS.'functions.js'; ?>"></script>
+    <script src="<?php echo FUNCTIONS.'functions.js'; ?>"></script>
 </head>
 <body>
