@@ -13,7 +13,7 @@ include HEADER;
 ?>
 
 <div class="main_content">
-    <form name="n" id="n" action="<?php echo ROOT.CONTROLLER; ?>" method="post">
+    <form name="n" id="n" action="<?php echo CONTROLLER; ?>" method="post">
         <div class="content" type="large">
             <h1><?php echo $title; ?></h1>
             <p>Hier werden anstehende Events in die Datenbank aufgenommen. Du kannst diese Daten noch nachträglich
