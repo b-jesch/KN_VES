@@ -1,11 +1,7 @@
 <?php
-# Prolog
 if (!defined('CONTEXT')) {
-    require 'start.php';
-    header('Location: '.ROOT);
-    exit();
+    die();
 }
-include HEADER;
 
 echo '<div class="main_content">';
 echo '<div class="content" type="large">';
@@ -53,7 +49,3 @@ if ($events) {
 </form>
 </div>
 </div>
-
-<?php
-# Epilog
-include FOOTER;

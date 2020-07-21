@@ -1,15 +1,7 @@
 <?php
-# Prolog
 if (!defined('CONTEXT')) {
-    require 'start.php';
-    header('Location: '.ROOT);
-    exit();
+    die();
 }
-include HEADER;
-
-# Inhalt der View
-
-
 ?>
 
 <div class="main_content">
@@ -133,7 +125,3 @@ include HEADER;
         <input type="hidden" name="item" value="<?php echo time(); ?>">
     </form>
 </div>
-
-<?php
-# Epilog
-include FOOTER;

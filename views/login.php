@@ -1,15 +1,7 @@
 <?php
-# Prolog
 if (!defined('CONTEXT')) {
-    require 'start.php';
-    header('Location: '.ROOT);
-    exit();
+    die();
 }
-include HEADER;
-
-# Inhalt der View
-
-
 ?>
 
 <div class="main_content">
@@ -47,6 +39,3 @@ include HEADER;
         </div>
     </form>
 </div>
-<?php
-# Epilog
-include FOOTER;

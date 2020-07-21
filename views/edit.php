@@ -1,11 +1,7 @@
 <?php
-# Prolog
 if (!defined('CONTEXT')) {
-    require 'start.php';
-    header('Location: '.ROOT);
-    exit();
+    die();
 }
-include HEADER;
 
 if (isset($c_pars['item'])) {
 
@@ -151,5 +147,3 @@ if (isset($c_pars['item'])) {
         <?php
     }
 }
-# Epilog
-include FOOTER;
