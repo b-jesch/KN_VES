@@ -84,6 +84,7 @@ switch ($c_pars['site']) {
     case 'delete':
         if (is_file(DATA.$c_pars['item'])) {
             unlink(DATA.$c_pars['item']);
+            $title = TITLE.'Events auflisten';
             require VIEWS.LISTVIEW;
         }
         break;
