@@ -1,6 +1,11 @@
 <?php
+
+# Prolog
+
 if (!defined('CONTEXT')) {
-    die();
+    require 'start.php';
+    header('Location: ' . ROOT);
+    exit();
 }
 
 echo '<div class="main_content">';

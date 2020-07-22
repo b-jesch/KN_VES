@@ -1,7 +1,13 @@
 <?php
+
+# Prolog
+
 if (!defined('CONTEXT')) {
-    die();
+    require 'start.php';
+    header('Location: ' . ROOT);
+    exit();
 }
+
 
 if (isset($c_pars['item'])) {
 

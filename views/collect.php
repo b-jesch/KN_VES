@@ -1,7 +1,13 @@
 <?php
+
+# Prolog
+
 if (!defined('CONTEXT')) {
-    die();
+    require 'start.php';
+    header('Location: ' . ROOT);
+    exit();
 }
+
 ?>
 
 <div class="main_content">
