@@ -61,11 +61,11 @@ elseif (isset($c_pars['item'], $c_pars['add'])) {
 switch ($c_pars['site']) {
     case 'list_event':
         $title = TITLE.'Events auflisten';
-        require VIEWS.LISTVIEW;
+        $view = VIEWS.LISTVIEW;
         break;
     case 'collect_event':
         $title = TITLE.'Eventdaten erfassen';
-        require VIEWS.COLLECT;
+        $view = VIEWS.COLLECT;
         break;
 
     case 'collect_2':
@@ -73,27 +73,28 @@ switch ($c_pars['site']) {
         $ev->create($c_pars, $_SESSION['user'], $_SESSION['id']);
         $ev->persist();
         $title = TITLE.'Events auflisten';
-        require VIEWS.LISTVIEW;
+        $view = VIEWS.LISTVIEW;
         break;
 
     case 'edit':
         $title = TITLE.'Event bearbeiten';
-        require VIEWS.EDIT;
+        $view = VIEWS.EDIT;
         break;
 
     case 'delete':
         if (is_file(DATA.$c_pars['item'])) {
             unlink(DATA.$c_pars['item']);
-            require VIEWS.LISTVIEW;
+            $title = TITLE.'Events auflisten';
+            $view = VIEWS.LISTVIEW;
         }
         break;
-
-    case 'login':
-        $title = TITLE.'Check In';
-        require VIEWS.DEFAULTPAGE;
-        break;
+        
     default:
         # Bootstrap
         $title = TITLE.'Check In';
-        require VIEWS.DEFAULTPAGE;
+        $view = VIEWS.DEFAULTPAGE;
 }
+
+require VIEWS.HEADER;
+require $view;
+require VIEWS.FOOTER;

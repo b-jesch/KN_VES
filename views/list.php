@@ -1,11 +1,7 @@
 <?php
-# Prolog
 if (!defined('CONTEXT')) {
-    require 'start.php';
-    header('Location: '.ROOT);
-    exit();
+    die();
 }
-include HEADER;
 
 echo '<div class="main_content">';
 echo '<div class="content" type="large">';
@@ -36,7 +32,7 @@ if ($events) {
         echo empty($ev->event['fanart']) ? 'k.A'.PHP_EOL : '<a href="'.$ev->event['fanart']. '" target="_blank">' .$ev->event['fanart'].'</a>'.PHP_EOL;
         if ($ev->event['user_id'] == $_SESSION['id']) {
             echo '<br>'.PHP_EOL;
-            echo '<form name="n" id="n" action="'.ROOT.'" method="POST">';
+            echo '<form name="n" id="n" action="'.CONTROLLER.'" method="POST">';
             echo '<input class="button" type="submit" value="Bearbeiten" name="edit">'.PHP_EOL;
             echo '<input class="button_red" type="submit" value="Löschen" name="delete" onclick="return fConfirm()">'.PHP_EOL;
             echo '<input type="hidden" name="item" value="'.$ev->event['id'].'">'.PHP_EOL;
@@ -53,7 +49,3 @@ if ($events) {
 </form>
 </div>
 </div>
-
-<?php
-# Epilog
-include FOOTER;
