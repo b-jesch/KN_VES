@@ -5,10 +5,10 @@ define('DEBUG', true);
 # Root/Folders of CMS
 
 # server production
-# define('ROOT', 'https://repo.kodinerds.net/eventserver/');
+define('ROOT', 'https://repo.kodinerds.net/events/');
 
 # server testing
-define('ROOT', 'https://event.bj4mw.duckdns.org/');
+# define('ROOT', 'https://event.bj4mw.duckdns.org/');
 
 # Kodinerds User URL/Cookies
 
