@@ -166,11 +166,11 @@ input[type=text], input[type=password], input[type=datetime-local], input[type=d
 }
 
 .long {
-    width:500px;
+    width:650px;
 }
 
 textarea {
-    width: 505px;
+    width: 655px;
     height: 8em;
     border: 1px solid black;
 }
@@ -226,7 +226,7 @@ h4, caption {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 700px;
+    /* height: 700px; */
 }
 
 .footer {
@@ -255,7 +255,7 @@ h4, caption {
 }
 
 [type=large] {
-    width: 800px;
+    width: 1000px;
 }
 
 .content table {

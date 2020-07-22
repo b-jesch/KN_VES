@@ -27,10 +27,14 @@ class Event
             'icon' => $pars['icon'],
             'fanart' => $pars['fanart'],
             'plot' => $pars['plot'],
-            'event_ts' => NULL
+            'ts_from' => 0,
+            'ts_to' => 0
         );
         if (!empty($this->event['from'])) {
-            $this->event['event_ts'] = DateTime::createFromFormat('Y-m-d H:i', $this->event['from'])->getTimestamp();
+            $this->event['ts_from'] = DateTime::createFromFormat('Y-m-d H:i', $this->event['from'])->getTimestamp();
+        }
+        if (!empty($this->event['to'])) {
+            $this->event['ts_to'] = DateTime::createFromFormat('Y-m-d H:i', $this->event['to'])->getTimestamp();
         }
     }
 

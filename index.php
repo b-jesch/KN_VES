@@ -41,6 +41,8 @@ if (isset($c_pars['check'])) {
     } else {
         $c_pars['site'] = 'login';
     }
+} elseif (isset($_SESSION['user'], $_SESSION['id'], $c_pars['site']) && $c_pars['site'] == 'collect_event') {
+    //
 } else {
     $c_pars['site'] = 'login';
 }
