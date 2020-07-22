@@ -45,3 +45,4 @@ if (!defined('CONTEXT')) {
         </div>
     </form>
 </div>
+<div class="footer">Kodinerds Event Server by BJ1, TehTux</div>
