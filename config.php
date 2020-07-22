@@ -2,6 +2,20 @@
 
 define('DEBUG', true);
 
+# Root/Folders of CMS
+
+# server production
+# define('ROOT', 'https://repo.kodinerds.net/eventserver/');
+
+# server testing
+define('ROOT', 'https://event.bj4mw.duckdns.org/');
+
+# Kodinerds User URL/Cookies
+
+define('KN_USER', 'https://www.kodinerds.net/index.php/User/');
+define('KN_LOGIN', 'https://www.kodinerds.net/index.php/Login/');
+define('COOKIE_PATH', $_SERVER['DOCUMENT_ROOT'].'/cookie.txt');
+
 # --------------------------------------------------------- #
 
 define('CONTROLLER', 'index.php');
@@ -41,3 +55,4 @@ define('FOOTER', 'footer.php');         # Footer
 # global MVC-Context
 
 define('CONTEXT', true);
+

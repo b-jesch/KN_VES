@@ -11,9 +11,9 @@ if (isset($c_pars['check'])) {
         $c_pars['site'] = 'list_event';
 
         $curlHandler = curl_init();
-        curl_setopt($curlHandler, CURLOPT_URL, 'https://www.kodinerds.net/index.php/Login/');
+        curl_setopt($curlHandler, CURLOPT_URL, KN_LOGIN);
         curl_setopt($curlHandler, CURLOPT_POST, 1);
-        curl_setopt($curlHandler, CURLOPT_COOKIEJAR, 'cookie.txt');
+        curl_setopt($curlHandler, CURLOPT_COOKIEJAR, COOKIE_PATH);
         curl_setopt($curlHandler, CURLOPT_RETURNTRANSFER, 1);
 
         /** Get security token */
@@ -25,8 +25,9 @@ if (isset($c_pars['check'])) {
         /** Log in */
         curl_setopt($curlHandler, CURLOPT_POSTFIELDS, 'username='.urlencode($_POST['username']).'&password='.urlencode($_POST['password']).'&useCookies=1&action=login&t='.$securityToken);
         $site = curl_exec($curlHandler);
-        if (preg_match('/(.*?)<a href="https:\/\/www\.kodinerds\.net\/index\.php\/User\/(.*?)\/" class="framed">/', $site, $user) != 1) {
-            $c_pars['site'] = 'login';
+        # if (preg_match('/(.*?)<a href="https:\/\/www\.kodinerds\.net\/index\.php\/User\/(.*?)\/" class="framed">/', $site, $user) != 1) {
+        if (preg_match('/(.*?)<a href="'.str_replace('/', '\/', KN_USER).'(.*?)\/" class="framed">/', $site, $user) != 1) {
+                $c_pars['site'] = 'login';
         } else {
             $_SESSION['id'] = explode('-', $user[2])[0];
             $_SESSION['user'] = explode('-', $user[2])[1];
@@ -40,8 +41,6 @@ if (isset($c_pars['check'])) {
     } else {
         $c_pars['site'] = 'login';
     }
-} elseif (isset($_SESSION['user'], $_SESSION['id'], $c_pars['site']) && $c_pars['site'] == 'collect_event') {
-    //
 } else {
     $c_pars['site'] = 'login';
 }
