@@ -14,6 +14,7 @@ if (isset($_GET['playlist'])) {
     if (empty($playlist)) {
         $response = ['result' => 'ok', 'code' => '30030', 'item' => $playlist];
     } else {
+        usort($playlist, 'compare_date');
         $response = ['result' => 'ok', 'code' => '30031', 'item' => $playlist];
     }
 

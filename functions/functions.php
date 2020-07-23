@@ -6,3 +6,9 @@ function scanFolder($folder, $exceptions)
     }
     return false;
 }
+
+# compare functions fpr usort
+
+function compare_date($p1, $p2) {
+    return strcmp($p1->ts_from, $p2->ts_from);
+}
