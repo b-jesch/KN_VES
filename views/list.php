@@ -8,7 +8,6 @@ if (!defined('CONTEXT')) {
     exit();
 }
 
-echo '<div class="main_content">';
 echo '<div class="content" type="large">';
 echo '<h1>'.$title.'</h1>';
 $events = scanFolder(DATA, ['media', '..', '.']);
@@ -53,4 +52,4 @@ if ($events) {
     <input type="hidden" name="site" value="collect_event">
 </form>
 </div>
-</div>
+
