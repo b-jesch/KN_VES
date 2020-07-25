@@ -34,6 +34,7 @@ if ($events) {
         echo empty($ev->event['icon']) ? 'k.A'.PHP_EOL : '<a href="'.$ev->event['icon']. '" target="_blank">' .$ev->event['icon'].'</a>'.PHP_EOL;
         echo '<br>Poster: ';
         echo empty($ev->event['fanart']) ? 'k.A'.PHP_EOL : '<a href="'.$ev->event['fanart']. '" target="_blank">' .$ev->event['fanart'].'</a>'.PHP_EOL;
+        echo '<br><br>erstellt von '.$ev->event['user'].PHP_EOL;
         if ($ev->event['user_id'] == $_SESSION['id']) {
             echo '<br>'.PHP_EOL;
             echo '<form name="n" id="n" action="'.CONTROLLER.'" method="POST">';
