@@ -50,6 +50,14 @@ if (!defined('CONTEXT')) {
                 </td>
             </tr>
             <tr>
+                <td class="desc_form">
+                    <label for="web">Website:</label>
+                </td>
+                <td>
+                    <input type="text" class="long" name="web" id="web" form="n" required>
+                </td>
+            </tr>
+            <tr>
                 <td colspan="2"><hr></td>
             </tr>
             <tr>

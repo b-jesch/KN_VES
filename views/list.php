@@ -18,6 +18,9 @@ if ($events) {
         echo '<h3>'.$ev->event['event_date'].'</h3>'.PHP_EOL;
         echo '<h2>'.$ev->event['event'].' ['.$ev->event['genre'].']</h2>'.PHP_EOL;
         echo '<p>'.nl2br($ev->event['plot']).'</p>'.PHP_EOL;
+        if (!empty($ev->event['web'])) {
+            echo '<a href="'.$ev->event['web'].'" target="_new">'.$ev->event['web'].'</a>'.PHP_EOL;
+        }
         echo '<hr>'.PHP_EOL;
         echo 'Stream: ';
         echo empty($ev->event['stream']) ? 'k.A.'.PHP_EOL : $ev->event['stream'].PHP_EOL;
@@ -34,7 +37,7 @@ if ($events) {
         echo empty($ev->event['icon']) ? 'k.A'.PHP_EOL : '<a href="'.$ev->event['icon']. '" target="_blank">' .$ev->event['icon'].'</a>'.PHP_EOL;
         echo '<br>Poster: ';
         echo empty($ev->event['fanart']) ? 'k.A'.PHP_EOL : '<a href="'.$ev->event['fanart']. '" target="_blank">' .$ev->event['fanart'].'</a>'.PHP_EOL;
-        echo '<br><br>erstellt von '.$ev->event['user'].PHP_EOL;
+        echo '<p class="small">erstellt von '.$ev->event['user'].'</p>'.PHP_EOL;
         if ($ev->event['user_id'] == $_SESSION['id']) {
             echo '<br>'.PHP_EOL;
             echo '<form name="n" id="n" action="'.CONTROLLER.'" method="POST">';

@@ -2,7 +2,7 @@
 
 body {
     font-family: Verdana, Arial, Helevtica, sans-serif;
-    font-size: 14px;
+    font-size: 12px;
     background-color: black;
     background-image: url("wp2.jpg");
     background-position: center;
@@ -115,6 +115,10 @@ input[type=text], input[type=password], input[type=datetime-local], input[type=d
 
 .center {
     text-align: center;
+}
+
+.small {
+    font-size: 0.8em;
 }
 
 textarea {

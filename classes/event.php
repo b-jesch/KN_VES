@@ -19,6 +19,7 @@ class Event
             'event_date' => $pars['event_date'],
             'event' => $pars['event'],
             'genre' => $pars['genre'],
+            'web' => $pars['web'],
             'stream' => $pars['stream'],
             'isyoutube' => (isset($pars['isyoutube'])) ? true : false,
             'from' => str_replace('T', ' ', $pars['from']),
