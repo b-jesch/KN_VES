@@ -3,7 +3,7 @@
 # Prolog
 
 if (!defined('CONTEXT')) {
-    require 'start.php';
+    require '../config.php';
     header('Location: ' . ROOT);
     exit();
 }

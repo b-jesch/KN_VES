@@ -3,7 +3,7 @@
 # Prolog
 
 if (!defined('CONTEXT')) {
-    require 'start.php';
+    require '../config.php';
     header('Location: ' . ROOT);
     exit();
 }
@@ -148,7 +148,7 @@ if (isset($c_pars['item'])) {
                         <td colspan="2" class="center">
                             <input class="button" type="submit" name='add' value="Speichern">
                             <input class="button" type="button" name='abort' value="Abbrechen"
-                                   onclick="document.location.href='?abort';">
+                                   onclick="document.location.href='?site=list_event';">
                         </td>
                     </tr>
                 </table>

@@ -3,7 +3,7 @@
 body {
     font-family: Verdana, Arial, Helevtica, sans-serif;
     font-size: 12px;
-    background-color: black;
+    background-color: #191919;
     background-image: url("wp2.jpg");
     background-position: center;
     background-size: cover;
@@ -12,12 +12,16 @@ body {
 }
 
 hr {
-    color:#336699;
+    color:#808080;
     height:2px;
     border: 0;
     margin: 10px 0;
-    background-image: linear-gradient(to right,#eee,#336699,#eee);
+    background-image: linear-gradient(to right,#eee,#808080,#eee);
     clear: both;
+}
+
+*:focus {
+    outline: none;
 }
 
 .fileupload {
@@ -50,21 +54,22 @@ hr {
 }
 
 .button, .button_red, .select {
-    background-color: #336699;
-    width:100px;
+    background-color: #1e4058;
+    width:125px;
     color: white;
     height:28px;
     border-radius: 3px;
     border-width: 0;
     font-family: Verdana, Arial, Helvetica, sans-serif;
     font-size:12px;
-    font-weight:bold;
+    font-weight: normal;
     margin: 8px 16px 8px 0;
 }
 
 .button:hover {
-    background-color: #224466;
+    background-color: rgba(12, 31, 40, 0.97);
 }
+
 .button_red {
     background-color: red;
 }
@@ -128,11 +133,12 @@ textarea {
 }
 
 h1 {
-    background-color: #336699;
+    background-color: #575757;
     color: white;
     font-size: 16px;
     font-family: Verdana, Arial, sans-serif;
-    padding: 5px;
+    font-weight: normal;
+    padding: 5px 10px;
     margin: 2px;
 }
 
@@ -146,11 +152,11 @@ h2 {
 }
 
 h3 {
-    background-color: silver;
+    background-color: #9d9d9d;
     font-size: 12px;
     padding-top: 5px;
     padding-bottom: 5px;
-    padding-left: 1%;
+    padding-left: 10px;
     font-family: Verdana, Arial, Helevtica, sans-serif;
     width: 99%;
 }
@@ -191,7 +197,7 @@ h4, caption {
     width: 400px;
     margin: 100px auto;
     padding: 10px;
-    background-color: #F9F9F9;
+    background-color: #F3F3F3;
 }
 
 [type=large] {

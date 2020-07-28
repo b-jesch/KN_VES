@@ -12,3 +12,7 @@ function scanFolder($folder, $exceptions)
 function compare_date($p1, $p2) {
     return strcmp($p1->ts_from, $p2->ts_from);
 }
+
+function compare_eventdate($p1, $p2) {
+    return strcmp($p1['event_date'], $p2['event_date']);
+}

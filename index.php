@@ -7,9 +7,9 @@ $c_pars = array_merge($_POST, $_GET, $_FILES);
 session_start();
 
 if (isset($c_pars['check'])) {
-    if (!empty($c_pars['username']) and !empty($c_pars['password'])) {
-        $c_pars['site'] = 'list_event';
-
+    if (empty($c_pars['username']) or empty($c_pars['password'])) {
+        $c_pars['site'] = 'login';
+    } else {
         $curlHandler = curl_init();
         curl_setopt($curlHandler, CURLOPT_URL, KN_LOGIN);
         curl_setopt($curlHandler, CURLOPT_POST, 1);
@@ -23,29 +23,20 @@ if (isset($c_pars['check'])) {
         $securityToken = $match[2];
 
         /** Log in */
-        curl_setopt($curlHandler, CURLOPT_POSTFIELDS, 'username='.urlencode($_POST['username']).'&password='.urlencode($_POST['password']).'&useCookies=1&action=login&t='.$securityToken);
+        curl_setopt($curlHandler, CURLOPT_POSTFIELDS, 'username=' . urlencode($_POST['username']) . '&password=' . urlencode($_POST['password']) . '&useCookies=1&action=login&t=' . $securityToken);
         $site = curl_exec($curlHandler);
         # if (preg_match('/(.*?)<a href="https:\/\/www\.kodinerds\.net\/index\.php\/User\/(.*?)\/" class="framed">/', $site, $user) != 1) {
-        if (preg_match('/(.*?)<a href="'.str_replace('/', '\/', KN_USER).'(.*?)\/" class="framed">/', $site, $user) != 1) {
-                $c_pars['site'] = 'login';
+        if (preg_match('/(.*?)<a href="' . str_replace('/', '\/', KN_USER) . '(.*?)\/" class="framed">/', $site, $user) != 1) {
+            $c_pars['site'] = 'login';
         } else {
             $_SESSION['id'] = explode('-', $user[2])[0];
             $_SESSION['user'] = explode('-', $user[2])[1];
+            $c_pars['site'] = 'list_event';
         }
-    } else {
-        $c_pars['site'] = 'login';
     }
-} elseif (isset($c_pars['abort'])) {
-    if (isset($_SESSION['user'], $_SESSION['id'])) {
-        $c_pars['site'] = 'list_event';
-    } else {
-        $c_pars['site'] = 'login';
-    }
-} elseif (isset($_SESSION['user'], $_SESSION['id'], $c_pars['site']) && $c_pars['site'] == 'collect_event') {
-    //
-} else {
-    $c_pars['site'] = 'login';
 }
+
+if (!isset($_SESSION['id'])) $c_pars['site'] = 'login';
 
 # Main Controller
 
@@ -58,7 +49,10 @@ elseif (isset($c_pars['item'], $c_pars['delete'])) {
 elseif (isset($c_pars['item'], $c_pars['add'])) {
     $c_pars['site'] = 'collect_2';
 }
-
+elseif (isset($c_pars['item'], $c_pars['stream'])) {
+    if (empty($c_pars['stream'])) $c_pars['site'] = 'list_event';
+    else $c_pars['site'] = 'collect_3';
+}
 switch ($c_pars['site']) {
     case 'list_event':
         $title = TITLE.'Events auflisten';
@@ -77,6 +71,15 @@ switch ($c_pars['site']) {
         $view = VIEWS.LISTVIEW;
         break;
 
+    case 'collect_3':
+        $ev = new Event();
+        $ev->read($c_pars['item']);
+        $ev->event['stream'] = $c_pars['stream'];
+        $ev->persist();
+        $title = TITLE.'Events auflisten';
+        $view = VIEWS.LISTVIEW;
+        break;
+
     case 'edit':
         $title = TITLE.'Event bearbeiten';
         $view = VIEWS.EDIT;
@@ -89,7 +92,12 @@ switch ($c_pars['site']) {
             $view = VIEWS.LISTVIEW;
         }
         break;
-        
+
+    case 'login':
+        $title = TITLE.'Check In';
+        $view = VIEWS.DEFAULTPAGE;
+        break;
+
     default:
         # Bootstrap
         $title = TITLE.'Check In';
