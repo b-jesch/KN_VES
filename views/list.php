@@ -29,7 +29,7 @@ if ($events) {
         }
         echo '<hr>'.PHP_EOL;
         echo 'Stream: ';
-        echo empty($ev['stream']) ? 'k.A.'.PHP_EOL : $ev['stream'].PHP_EOL;
+        echo empty($ev['stream']) ? 'k.A. <span style="color: red; font-size: 1.2em;">&#9998;</span>'.PHP_EOL : $ev['stream'].PHP_EOL;
         if ($ev['permalink']) {
             echo '<br>Permalink'.PHP_EOL;
         } else {
