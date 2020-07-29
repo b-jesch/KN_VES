@@ -7,6 +7,9 @@ function scanFolder($folder, $exceptions)
     return false;
 }
 
+function gerTF($datetime, $f_out, $f_in='Y-m-d H:i') {
+    return DateTime::createFromFormat($f_in, $datetime)->format($f_out);
+}
 # compare functions fpr usort
 
 function compare_date($p1, $p2) {
