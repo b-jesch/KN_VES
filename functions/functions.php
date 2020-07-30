@@ -17,7 +17,7 @@ function shorten($p, $maxlenght=100) {
 }
 
 function extlink($link) {
-    return '<a href="'.$link.'"><img src="'.EXTLINK.'" class="extlink"></a>';
+    return '<a href="'.$link.'" target="_blank" rel="noopener"><img src="'.EXTLINK.'" class="extlink"></a>';
 }
 
 # compare functions fpr usort
