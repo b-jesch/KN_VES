@@ -5,10 +5,10 @@ define('DEBUG', true);
 # Root/Folders of CMS
 
 # server production
-# define('ROOT', 'https://repo.kodinerds.net/events/');
+define('ROOT', 'https://events.repo.kodinerds.net/');
 
 # server testing
-define('ROOT', 'https://event.bj4mw.duckdns.org/');
+# define('ROOT', 'https://event.bj4mw.duckdns.org/');
 
 # Kodinerds User URL/Cookies
 
@@ -46,8 +46,8 @@ define('CLASSES', 'classes/');
 
 define('FUNCTIONS', 'functions/');
 
-# Helpers
-
+# Helpers, Graphics
+define('EXTLINK', 'css/extlink.png');   # Grafik externer Link
 define('HEADER', 'header.php');         # Header
 define('FOOTER', 'footer.php');         # Footer
 

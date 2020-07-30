@@ -10,6 +10,16 @@ function scanFolder($folder, $exceptions)
 function gerTF($datetime, $f_out, $f_in='Y-m-d H:i') {
     return DateTime::createFromFormat($f_in, $datetime)->format($f_out);
 }
+
+function shorten($p, $maxlenght=100) {
+    if (strlen($p) > $maxlenght -3) return substr($p,0,$maxlenght-3).'...';
+    return $p;
+}
+
+function extlink($link) {
+    return '<a href="'.$link.'"><img src="'.EXTLINK.'" class="extlink"></a>';
+}
+
 # compare functions fpr usort
 
 function compare_date($p1, $p2) {

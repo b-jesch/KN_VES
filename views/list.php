@@ -25,11 +25,11 @@ if ($events) {
         echo '<h2>'.$ev['event'].' ['.$ev['genre'].']</h2>'.PHP_EOL;
         echo '<p>'.nl2br($ev['plot']).'</p>'.PHP_EOL;
         if (!empty($ev['web'])) {
-            echo '<a href="'.$ev['web'].'" target="_blank" rel="noopener">'.$ev['web'].'</a>'.PHP_EOL;
+            echo '<a href="'.$ev['web'].'" target="_blank" rel="noopener">'.shorten($ev['web']).'</a>'.PHP_EOL;
         }
         echo '<hr>'.PHP_EOL;
         echo 'Stream: ';
-        echo empty($ev['stream']) ? 'k.A. <span style="color: red; font-size: 1.5em;">&#9998;</span>'.PHP_EOL : $ev['stream'].PHP_EOL;
+        echo empty($ev['stream']) ? 'k.A. <span style="color: red; font-size: 1.5em;">&#9998;</span>'.PHP_EOL : shorten($ev['stream']).extlink($ev['stream']).PHP_EOL;
         if ($ev['permalink']) {
             echo '<br>Permalink'.PHP_EOL;
         } else {
@@ -40,9 +40,9 @@ if ($events) {
         }
         echo '<hr>'.PHP_EOL;
         echo 'Icon: ';
-        echo empty($ev['icon']) ? 'k.A'.PHP_EOL : '<a href="'.$ev['icon']. '" target="_blank" rel="noopener">' .$ev['icon'].'</a>'.PHP_EOL;
+        echo empty($ev['icon']) ? 'k.A'.PHP_EOL : '<a href="'.$ev['icon']. '" target="_blank" rel="noopener">' .shorten($ev['icon']).'</a>'.PHP_EOL;
         echo '<br>Poster: ';
-        echo empty($ev['fanart']) ? 'k.A'.PHP_EOL : '<a href="'.$ev['fanart']. '" target="_blank" rel="noopener">' .$ev['fanart'].'</a>'.PHP_EOL;
+        echo empty($ev['fanart']) ? 'k.A'.PHP_EOL : '<a href="'.$ev['fanart']. '" target="_blank" rel="noopener">' .shorten($ev['fanart']).'</a>'.PHP_EOL;
         echo '<p class="small">erstellt von '.$ev['user'].'</p>'.PHP_EOL;
         echo '<form name="'.$ev['id'].'" id="'.$ev['id'].'" action="'.CONTROLLER.'" method="POST">';
         if (empty($ev['stream']) and !$ev->$event['permalink']) {

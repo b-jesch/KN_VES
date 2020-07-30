@@ -78,6 +78,13 @@ hr {
     background-color: #A10000;
 }
 
+.extlink {
+    width: 24px;
+    height: 24px;
+    border: none;
+    margin: 2px 5px 0 5px;
+}
+
 .select {
     padding-left: 5px;
     width: 200px;
