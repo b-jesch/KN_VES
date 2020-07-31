@@ -11,13 +11,14 @@ function gerTF($datetime, $f_out, $f_in='Y-m-d H:i') {
     return DateTime::createFromFormat($f_in, $datetime)->format($f_out);
 }
 
-function shorten($p, $maxlenght=100) {
+function shorten($p, $maxlenght=90) {
     if (strlen($p) > $maxlenght -3) return substr($p,0,$maxlenght-3).'...';
     return $p;
 }
 
 function extlink($link) {
-    return '<a href="'.$link.'" target="_blank" rel="noopener"><img src="'.EXTLINK.'" class="extlink"></a>';
+    return '<a href="'.$link.'" target="_blank" rel="noopener">
+            <img src="'.EXTLINK.'" class="extlink"  alt="Link zum Stream" title="Link zum Stream"></a>';
 }
 
 # compare functions fpr usort

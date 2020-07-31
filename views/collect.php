@@ -13,7 +13,8 @@ if (!defined('CONTEXT')) {
     <div class="content" type="large">
         <h1><?php echo $title; ?></h1>
         <p>Hier werden anstehende Events in die Datenbank aufgenommen. Du kannst diese Daten noch nachträglich
-            ändern. Zur Identifikation wird Deine User-ID herangezogen.
+            ändern. Zur Identifikation wird Deine User-ID herangezogen. Zusätzlich dürfen auch weitere User das
+            Event bearbeiten, wenn Du deren User-ID im Feld "weitere" einträgst.
         </p>
         <hr>
         <table>
@@ -22,6 +23,9 @@ if (!defined('CONTEXT')) {
                 <td>
                     <input type="text" class="short" name="id" id="id" form="n"
                            value="<?php echo $_SESSION['id'];  ?>" readonly>
+                    <span class="desc_form">weitere:</span>
+                    <input type="text" class="short" name="collaborators" id="collaborators" form="n"
+                           title="weitere User-IDs, die das Event bearbeiten dürfen">
                 </td>
             </tr>
             <tr><td colspan="2"><hr></td></tr>
@@ -117,7 +121,7 @@ if (!defined('CONTEXT')) {
                 </td>
             </tr>
             <tr>
-                <td class="desc_form">
+                <td class="desc_form" va="top">
                     <label for="plot">Beschreibung:</label>
                 </td>
                 <td>
@@ -126,8 +130,8 @@ if (!defined('CONTEXT')) {
             </tr>
             <tr>
                 <td colspan="2" class="center">
-                    <input class="button" type="submit" name='add' value="Erstellen">
-                    <input class="button" type="button" name='abort' value="Abbrechen"
+                    <input class="button" type="submit" name='add' title="Eintrag auf dem Server erstellen" value="Erstellen">
+                    <input class="button" type="button" name='abort' title="zurück zur Liste" value="Abbrechen"
                            onclick="document.location.href='?site=list_event';">
                 </td>
             </tr>

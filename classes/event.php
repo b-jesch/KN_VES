@@ -12,9 +12,11 @@ class Event
     }
 
     function create($pars, $user, $user_id) {
+        preg_match_all('/[0-9]+/', $pars['collaborators'], $m);
         $this->event = array(
             'user' => $user,
             'user_id' => $user_id,
+            'collaborators' => $m[0],
             'id' => $pars['item'],
             'event_date' => $pars['event_date'],
             'event' => $pars['event'],
@@ -31,6 +33,7 @@ class Event
             'ts_from' => 0,
             'ts_to' => 0
         );
+
         if (!empty($this->event['from'])) {
             $this->event['ts_from'] = DateTime::createFromFormat('Y-m-d H:i', $this->event['from'])->getTimestamp();
         }

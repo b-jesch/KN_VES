@@ -6,6 +6,8 @@ require (FUNCTIONS.'functions.php');
 $c_pars = array_merge($_POST, $_GET, $_FILES);
 session_start();
 
+if (!isset($_SESSION['id'])) $c_pars['site'] = 'login';
+
 if (isset($c_pars['check'])) {
     if (empty($c_pars['username']) or empty($c_pars['password'])) {
         $c_pars['site'] = 'login';
@@ -35,8 +37,6 @@ if (isset($c_pars['check'])) {
         }
     }
 }
-
-if (!isset($_SESSION['id'])) $c_pars['site'] = 'login';
 
 # Main Controller
 
@@ -75,6 +75,10 @@ switch ($c_pars['site']) {
         $ev = new Event();
         $ev->read($c_pars['item']);
         $ev->event['stream'] = $c_pars['stream'];
+
+        if (!in_array($_SESSION['id'], $ev->event['collaborators']) and $ev->event['user_id'] != $_SESSION['id'])
+            $ev->event['collaborators'][] = $_SESSION['id'];
+
         $ev->persist();
         $title = TITLE.'Events auflisten';
         $view = VIEWS.LISTVIEW;

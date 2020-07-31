@@ -13,14 +13,15 @@ if (isset($c_pars['item'])) {
 
     $ev = new Event();
     $ev->read($c_pars['item']);
-    if ($ev->event['user_id'] == $_SESSION['id']) {
+    if ($ev->event['user_id'] == $_SESSION['id'] or in_array($_SESSION['id'], $ev['collaborators'])) {
 
         ?>
         <form name="n" id="n" action="<?php echo CONTROLLER; ?>" method="post">
             <div class="content" type="large">
                 <h1><?php echo $title; ?></h1>
                 <p>Hier werden anstehende Events in die Datenbank aufgenommen. Du kannst diese Daten noch nachträglich
-                    ändern. Zur Identifikation wird Deine User-ID herangezogen.
+                    ändern. Zur Identifikation wird Deine User-ID herangezogen. Zusätzlich dürfen auch weitere User das
+                    Event bearbeiten, wenn Du deren User-ID im Feld "weitere" einträgst.
                 </p>
                 <hr>
                 <table>
@@ -31,6 +32,10 @@ if (isset($c_pars['item'])) {
                         <td>
                             <input type="text" class="short" name="id" id="id" form="n"
                                    value="<?php echo $_SESSION['id'];  ?>" readonly>
+                            <span class="desc_form">weitere:</span>
+                            <input type="text" class="short" name="collaborators" id="collaborators" form="n"
+                                   value="<?php echo implode(', ', $ev->event['collaborators']); ?>"
+                                   title="weitere User-IDs, die das Event bearbeiten dürfen">
                         </td>
                     </tr>
                     <tr>
@@ -137,7 +142,7 @@ if (isset($c_pars['item'])) {
                         </td>
                     </tr>
                     <tr>
-                        <td class="desc_form">
+                        <td class="desc_form" va="top">
                             <label for="plot">Beschreibung:</label>
                         </td>
                         <td>
@@ -146,8 +151,8 @@ if (isset($c_pars['item'])) {
                     </tr>
                     <tr>
                         <td colspan="2" class="center">
-                            <input class="button" type="submit" name='add' value="Speichern">
-                            <input class="button" type="button" name='abort' value="Abbrechen"
+                            <input class="button" type="submit" name='add' title="Änderungen auf dem Server speichern" value="Speichern">
+                            <input class="button" type="button" name='abort' title="zurück zur Liste" value="Abbrechen"
                                    onclick="document.location.href='?site=list_event';">
                         </td>
                     </tr>

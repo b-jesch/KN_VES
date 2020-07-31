@@ -100,11 +100,15 @@ input[type='radio'] {
 
 .desc_form {
     text-align: right;
-    vertical-align: top;
+    vertical-align: middle;
     font-family: Verdana, Arial, sans-serif;
     font-size:12px;
     width: 30%;
     padding: 5px;
+}
+
+[va="top"] {
+    vertical-align: top;
 }
 
 input[type=text], input[type=password], input[type=datetime-local], input[type=date] {

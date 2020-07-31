@@ -37,7 +37,7 @@ if (!defined('CONTEXT')) {
             </tr>
             <tr>
                 <td colspan="2" class="center">
-                    <input class="button" type="submit" name='check' value="Check In">
+                    <input class="button" type="submit" name='check' title="mit den Daten von kodinerds.net einchecken" value="Check In">
                     <input class="button" type="submit" name='abort' value="Abbrechen">
                 </td>
             </tr>
