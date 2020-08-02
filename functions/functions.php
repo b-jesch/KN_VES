@@ -8,7 +8,11 @@ function scanFolder($folder, $exceptions)
 }
 
 function gerTF($datetime, $f_out, $f_in='Y-m-d H:i') {
-    return DateTime::createFromFormat($f_in, $datetime)->format($f_out);
+    try {
+        return DateTime::createFromFormat($f_in, $datetime)->format($f_out);
+    } catch(Exception $e) {
+        return $datetime;
+    }
 }
 
 function shorten($p, $maxlenght=90) {

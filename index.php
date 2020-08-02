@@ -76,8 +76,7 @@ switch ($c_pars['site']) {
         $ev->read($c_pars['item']);
         $ev->event['stream'] = $c_pars['stream'];
 
-        if (!in_array($_SESSION['id'], $ev->event['collaborators']) and $ev->event['user_id'] != $_SESSION['id'])
-            $ev->event['collaborators'][] = $_SESSION['id'];
+        if (!in_array($_SESSION['id'], $ev->event['user_id'])) $ev->event['user_id'][] = $_SESSION['id'];
 
         $ev->persist();
         $title = TITLE.'Events auflisten';

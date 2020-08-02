@@ -24,7 +24,7 @@ if (!defined('CONTEXT')) {
                     <input type="text" class="short" name="id" id="id" form="n"
                            value="<?php echo $_SESSION['id'];  ?>" readonly>
                     <span class="desc_form">weitere:</span>
-                    <input type="text" class="short" name="collaborators" id="collaborators" form="n"
+                    <input type="text" class="short" name="contributors" id="contributors" form="n"
                            title="weitere User-IDs, die das Event bearbeiten dürfen">
                 </td>
             </tr>

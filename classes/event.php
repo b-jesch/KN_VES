@@ -12,21 +12,20 @@ class Event
     }
 
     function create($pars, $user, $user_id) {
-        preg_match_all('/[0-9]+/', $pars['collaborators'], $m);
+        preg_match_all('/[0-9]+/', $pars['contributors'], $m);
         $this->event = array(
             'user' => $user,
-            'user_id' => $user_id,
-            'collaborators' => $m[0],
+            'user_id' => array_merge(array($user_id), $m[0]),
             'id' => $pars['item'],
             'event_date' => $pars['event_date'],
             'event' => $pars['event'],
             'genre' => $pars['genre'],
             'web' => trim($pars['web']),
             'stream' => trim($pars['stream']),
-            'isyoutube' => (isset($pars['isyoutube'])) ? true : false,
+            'isyoutube' => isset($pars['isyoutube']),
             'from' => str_replace('T', ' ', $pars['from']),
             'to' => str_replace('T', ' ', $pars['to']),
-            'permalink' => (isset($pars['permalink'])) ? true : false,
+            'permalink' => isset($pars['permalink']),
             'icon' => trim($pars['icon']),
             'fanart' => trim($pars['fanart']),
             'plot' => $pars['plot'],
@@ -35,11 +34,17 @@ class Event
         );
 
         if (!empty($this->event['from'])) {
-            $this->event['ts_from'] = DateTime::createFromFormat('Y-m-d H:i', $this->event['from'])->getTimestamp();
+            try {
+                $this->event['ts_from'] = DateTime::createFromFormat('Y-m-d H:i', $this->event['from'])->getTimestamp();
+            } catch (Exception $e) {}
         }
+
         if (!empty($this->event['to'])) {
-            $this->event['ts_to'] = DateTime::createFromFormat('Y-m-d H:i', $this->event['to'])->getTimestamp();
+            try {
+                $this->event['ts_to'] = DateTime::createFromFormat('Y-m-d H:i', $this->event['to'])->getTimestamp();
+            } catch (Exception $e) {}
         }
+
     }
 
     function read($event_id) {

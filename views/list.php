@@ -43,14 +43,14 @@ if ($events) {
         echo empty($ev['icon']) ? 'k.A'.PHP_EOL : '<a href="'.$ev['icon']. '" target="_blank" rel="noopener">' .shorten($ev['icon']).'</a>'.PHP_EOL;
         echo '<br>Poster: ';
         echo empty($ev['fanart']) ? 'k.A'.PHP_EOL : '<a href="'.$ev['fanart']. '" target="_blank" rel="noopener">' .shorten($ev['fanart']).'</a>'.PHP_EOL;
-        echo '<p class="small">erstellt von '.$ev['user'].' ['.$ev['user_id'].']</p>'.PHP_EOL;
+        echo '<p class="small">erstellt von '.$ev['user'].' ['.$ev['user_id'][0].']</p>'.PHP_EOL;
         echo '<form name="'.$ev['id'].'" id="'.$ev['id'].'" action="'.CONTROLLER.'" method="POST">';
         if (empty($ev['stream']) and !$ev->$event['permalink']) {
             echo '<input type="hidden" name="stream" id="stream" value="">'.PHP_EOL;
             echo '<input class="button" type="button" value="Stream eintragen" 
                   title="fehlenden Stream-Link nachtragen" name="edit_stream" onclick="fPrompt('.$ev['id'].')">'.PHP_EOL;
         }
-        if ($ev['user_id'] == $_SESSION['id'] or in_array($_SESSION['id'], $ev['collaborators'])) {
+        if (in_array($_SESSION['id'], $ev['user_id'])) {
             echo '<input class="button" type="submit" value="Bearbeiten" title="Eintrag bearbeiten" name="edit">'.PHP_EOL;
             echo '<input class="button_red" type="submit" value="Löschen" title="Eintrag löschen" name="delete" onclick="return fConfirm()">'.PHP_EOL;
             echo '<input type="hidden" name="item" value="'.$ev['id'].'">'.PHP_EOL;

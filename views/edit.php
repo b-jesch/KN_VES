@@ -13,7 +13,9 @@ if (isset($c_pars['item'])) {
 
     $ev = new Event();
     $ev->read($c_pars['item']);
-    if ($ev->event['user_id'] == $_SESSION['id'] or in_array($_SESSION['id'], $ev['collaborators'])) {
+    $ids = $ev->event['user_id'];
+    $id = array_shift($ids);
+    if (in_array($_SESSION['id'], $ev->event['user_id'])) {
 
         ?>
         <form name="n" id="n" action="<?php echo CONTROLLER; ?>" method="post">
@@ -31,10 +33,10 @@ if (isset($c_pars['item'])) {
                         </td>
                         <td>
                             <input type="text" class="short" name="id" id="id" form="n"
-                                   value="<?php echo $_SESSION['id'];  ?>" readonly>
+                                   value="<?php echo $id;  ?>" readonly>
                             <span class="desc_form">weitere:</span>
-                            <input type="text" class="short" name="collaborators" id="collaborators" form="n"
-                                   value="<?php echo implode(', ', $ev->event['collaborators']); ?>"
+                            <input type="text" class="short" name="contributors" id="contributors" form="n"
+                                   value="<?php echo implode(', ', $ids); ?>"
                                    title="weitere User-IDs, die das Event bearbeiten dürfen">
                         </td>
                     </tr>
