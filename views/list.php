@@ -43,7 +43,7 @@ if ($events) {
         echo empty($ev['icon']) ? 'k.A'.PHP_EOL : '<a href="'.$ev['icon']. '" target="_blank" rel="noopener">' .shorten($ev['icon']).'</a>'.PHP_EOL;
         echo '<br>Poster: ';
         echo empty($ev['fanart']) ? 'k.A'.PHP_EOL : '<a href="'.$ev['fanart']. '" target="_blank" rel="noopener">' .shorten($ev['fanart']).'</a>'.PHP_EOL;
-        echo '<p class="small">erstellt von '.$ev['user'].' ['.$ev['user_id'][0].']</p>'.PHP_EOL;
+        echo '<p class="small">erstellt von '.$ev['user'].' ['. implode(', ', $ev['user_id']) .']</p>'.PHP_EOL;
         echo '<form name="'.$ev['id'].'" id="'.$ev['id'].'" action="'.CONTROLLER.'" method="POST">';
         if (empty($ev['stream']) and !$ev->$event['permalink']) {
             echo '<input type="hidden" name="stream" id="stream" value="">'.PHP_EOL;
