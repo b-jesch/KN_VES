@@ -52,7 +52,10 @@ class Event
             $fh = fopen(DATA.$event_id, 'r');
             $this->event = json_decode(fgets($fh), true);
             fclose($fh);
+        } else {
+            return false;
         }
+        return true;
     }
 
     function read_raw($event_id) {

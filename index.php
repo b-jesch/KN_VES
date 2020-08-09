@@ -49,23 +49,29 @@ elseif (isset($c_pars['item'], $c_pars['delete'])) {
 elseif (isset($c_pars['item'], $c_pars['add'])) {
     $c_pars['site'] = 'collect_2';
 }
-elseif (isset($c_pars['item'], $c_pars['stream'])) {
+elseif (isset($c_pars['item'], $c_pars['insert'])) {
     if (empty($c_pars['stream'])) $c_pars['site'] = 'list_event';
     else $c_pars['site'] = 'collect_3';
 }
+
 switch ($c_pars['site']) {
     case 'list_event':
         $title = TITLE.'Events auflisten';
         $view = VIEWS.LISTVIEW;
         break;
-    case 'collect_event':
+
+    case 'collect':
         $title = TITLE.'Eventdaten erfassen';
         $view = VIEWS.COLLECT;
         break;
 
     case 'collect_2':
         $ev = new Event();
-        $ev->create($c_pars, $_SESSION['user'], $_SESSION['id']);
+        if ($ev->read($c_pars['item'])) {
+            $ev->create($c_pars, $ev->event['user'], $ev->event['user_id'][0]);
+        } else {
+            $ev->create($c_pars, $_SESSION['user'], $_SESSION['id']);
+        }
         $ev->persist();
         $title = TITLE.'Events auflisten';
         $view = VIEWS.LISTVIEW;

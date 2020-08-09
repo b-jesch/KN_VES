@@ -47,6 +47,7 @@ if ($events) {
         echo '<form name="'.$ev['id'].'" id="'.$ev['id'].'" action="'.CONTROLLER.'" method="POST">';
         if (empty($ev['stream']) and !$ev->$event['permalink']) {
             echo '<input type="hidden" name="stream" id="stream" value="">'.PHP_EOL;
+            echo '<input type="hidden" name="insert" id="insert" value="insert">'.PHP_EOL;
             echo '<input class="button" type="button" value="Stream eintragen" 
                   title="fehlenden Stream-Link nachtragen" name="edit_stream" onclick="fPrompt('.$ev['id'].')">'.PHP_EOL;
         }
@@ -63,7 +64,7 @@ if ($events) {
 
 <form name="n" id="n" action="<?php echo CONTROLLER; ?>" method="post">
     <input type="submit" class="button" name="add" title="neuen Eintrag auf dem Server erstellen" value="Hinzufügen">
-    <input type="hidden" name="site" value="collect_event">
+    <input type="hidden" name="site" value="collect">
 </form>
 </div>
 
