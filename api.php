@@ -21,6 +21,19 @@ if (isset($_GET['playlist'])) {
     header('Content-type: application/json');
     echo json_encode($response);
 
+} elseif (isset($_GET['maintenance'])) {
+    $files = scanFolder(DATA, ['media', '.', '..']);
+    foreach ($files as $file) {
+        $ev = new Event();
+        $ev->read($file);
+        if (isset($ev->event['retention_time']) and $ev->event['retention_time'] < time()) {
+            # echo $file.' should be deleted';
+            unlink(DATA.$file);
+        }
+    }
+
+
+
 } else {
     header('HTTP/1.0 403 Forbidden', true, 403);
     exit;

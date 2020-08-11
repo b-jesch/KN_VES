@@ -30,7 +30,8 @@ class Event
             'fanart' => trim($pars['fanart']),
             'plot' => $pars['plot'],
             'ts_from' => 0,
-            'ts_to' => 0
+            'ts_to' => 0,
+            'retention_time' => 0
         );
 
         if (!empty($this->event['from'])) {
@@ -42,9 +43,11 @@ class Event
         if (!empty($this->event['to'])) {
             try {
                 $this->event['ts_to'] = DateTime::createFromFormat('Y-m-d H:i', $this->event['to'])->getTimestamp();
+                $this->event['retention_time'] = $this->event['ts_to'] + RETENTION_TIME_TEMP;
             } catch (Exception $e) {}
+        } else {
+            $this->event['retention_time'] = $this->event['id'] + RETENTION_TIME_PERMA;
         }
-
     }
 
     function read($event_id) {

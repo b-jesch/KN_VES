@@ -51,6 +51,10 @@ define('EXTLINK', 'css/extlink.png');   # Grafik externer Link
 define('HEADER', 'header.php');         # Header
 define('FOOTER', 'footer.php');         # Footer
 
+# Maintenance
+
+define ('RETENTION_TIME_TEMP', 86400);      # 24 Hours
+define ('RETENTION_TIME_PERMA', 2592000);   # 30 Days
 
 # global MVC-Context
 
