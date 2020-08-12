@@ -85,7 +85,8 @@ if (!defined('CONTEXT')) {
                     <label for="from">gültig ab:</label>
                 </td>
                 <td>
-                    <input type="datetime-local" class="short" name="from" id="from" form="n">&nbsp;YYYY-MM-DD&nbsp;HH:MM
+                    <input type="datetime-local" class="short" name="from" id="from" form="n"
+                    title="Datums-/Zeitformat YYYY-MM-DD HH:MM für Firefox und Safari">&nbsp;YYYY-MM-DD&nbsp;HH:MM
                 </td>
             </tr>
             <tr>
@@ -93,7 +94,8 @@ if (!defined('CONTEXT')) {
                     <label for="to">gültig bis:</label>
                 </td>
                 <td>
-                    <input type="datetime-local" class="short" name="to" id="to" form="n">&nbsp;YYYY-MM-DD&nbsp;HH:MM
+                    <input type="datetime-local" class="short" name="to" id="to" form="n"
+                           title="Datums-/Zeitformat YYYY-MM-DD HH:MM für Firefox und Safari">&nbsp;YYYY-MM-DD&nbsp;HH:MM
                 </td>
             </tr>
             <tr>

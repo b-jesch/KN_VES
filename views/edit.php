@@ -104,7 +104,8 @@ if (isset($c_pars['item'])) {
                         </td>
                         <td>
                             <input type="datetime-local" class="short" name="from" id="from" form="n"
-                                   value="<?php echo str_replace(' ', 'T', $ev->event['from']); ?>">&nbsp;YYYY-MM-DD&nbsp;HH:MM
+                                   value="<?php echo str_replace(' ', 'T', $ev->event['from']); ?>"
+                                   title="Datums-/Zeitformat YYYY-MM-DD HH:MM für Firefox und Safari">&nbsp;YYYY-MM-DD&nbsp;HH:MM
                         </td>
                     </tr>
                     <tr>
@@ -113,7 +114,8 @@ if (isset($c_pars['item'])) {
                         </td>
                         <td>
                             <input type="datetime-local" class="short" name="to" id="to" form="n"
-                                   value="<?php echo str_replace(' ', 'T', $ev->event['to']); ?>">&nbsp;YYYY-MM-DD&nbsp;HH:MM
+                                   value="<?php echo str_replace(' ', 'T', $ev->event['to']); ?>"
+                                   title="Datums-/Zeitformat YYYY-MM-DD HH:MM für Firefox und Safari">&nbsp;YYYY-MM-DD&nbsp;HH:MM
                         </td>
                     </tr>
                     <tr>
