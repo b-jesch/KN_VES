@@ -7,8 +7,9 @@ body {
     background-image: url("wp2.jpg");
     background-position: center;
     background-size: cover;
-    height: 800px;
+    height: 600px;
     background-repeat: no-repeat;
+    padding: 20px;
 }
 
 hr {

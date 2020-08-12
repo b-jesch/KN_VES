@@ -49,7 +49,8 @@ if (isset($c_pars['item'])) {
                         </td>
                         <td>
                             <input type="date" class="short" name="event_date" id="event_date" form="n"
-                                   value="<?php echo $ev->event['event_date']; ?>" required>
+                                   value="<?php echo $ev->event['event_date']; ?>" required
+                                   title="Startdatum des Events, Pflichtfeld">
                         </td>
                     </tr>
                     <tr>
@@ -58,7 +59,8 @@ if (isset($c_pars['item'])) {
                         </td>
                         <td>
                             <input type="text" class="short" name="event" id="event" form="n"
-                                   value="<?php echo $ev->event['event']; ?>" required>
+                                   value="<?php echo $ev->event['event']; ?>" required
+                                   title="Titel des Events, Pflichtfeld">
                         </td>
                     </tr>
                     <tr>
@@ -67,7 +69,8 @@ if (isset($c_pars['item'])) {
                         </td>
                         <td>
                             <input type="text" class="short" name="genre" id="genre"
-                                   value="<?php echo $ev->event['genre']; ?>" form="n" required>
+                                   value="<?php echo $ev->event['genre']; ?>" form="n" required
+                                   title="Genre oder Kategorie des Events, Pflichtfeld">
                         </td>
                     </tr>
                     <tr>
@@ -76,7 +79,8 @@ if (isset($c_pars['item'])) {
                         </td>
                         <td>
                             <input type="text" class="long" name="web" id="web" form="n"
-                                   value="<?php echo $ev->event['web']; ?>">
+                                   value="<?php echo $ev->event['web']; ?>"
+                                   title="Webseite, die das Event bekannt gibt, Pflichtfeld">
                         </td>
                     </tr>
                     <tr><td colspan="2"><hr></td></tr>
@@ -86,7 +90,18 @@ if (isset($c_pars['item'])) {
                         </td>
                         <td>
                             <input type="text" class="long" name="stream" id="stream" form="n"
-                                   value="<?php echo $ev->event['stream']; ?>">
+                                   value="<?php echo $ev->event['stream']; ?>"
+                                   title="URL des M3U(8) Streams oder des Youtube Streams">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="desc_form">
+                            <label for="iseditable">Stream URL änderbar:</label>
+                        </td>
+                        <td>
+                            <input type="checkbox" name="iseditable" id="iseditable" form="n"
+                                <?php echo ($ev->event['iseditable']) ? ' checked' : ''; ?>
+                                   title="Stream URL darf nachträglich durch andere User geändert/korrigiert werden">
                         </td>
                     </tr>
                     <tr>
@@ -95,7 +110,8 @@ if (isset($c_pars['item'])) {
                         </td>
                         <td>
                             <input type="checkbox" name="isyoutube" id="isyoutube" form="n"
-                                <?php echo ($ev->event['isyoutube']) ? ' checked' : ''; ?>>
+                                <?php echo ($ev->event['isyoutube']) ? ' checked' : ''; ?>
+                                   title="Zum Abspielen des Streams Youtube Downloader verwenden">
                         </td>
                     </tr>
                     <tr>
@@ -124,7 +140,8 @@ if (isset($c_pars['item'])) {
                         </td>
                         <td>
                             <input type="checkbox" name="permalink" id="permalink" form="n"
-                            <?php echo ($ev->event['permalink']) ? ' checked' : ''; ?>>
+                            <?php echo ($ev->event['permalink']) ? ' checked' : ''; ?>
+                                   title="24/7 Stream ohne Zeitbegrenzung">
                         </td>
                     </tr>
                     <tr>
@@ -133,7 +150,8 @@ if (isset($c_pars['item'])) {
                         </td>
                         <td>
                             <input type="text" class="long" name="icon" id="icon" form="n"
-                                   value="<?php echo $ev->event['icon']; ?>">
+                                   value="<?php echo $ev->event['icon']; ?>"
+                                   title="Icon URL des Events, wird als Cover oder Poster verwendet">
                         </td>
                     </tr>
                     <tr>
@@ -142,7 +160,8 @@ if (isset($c_pars['item'])) {
                         </td>
                         <td>
                             <input type="text" class="long" name="fanart" id="fanart" form="n"
-                                   value="<?php echo $ev->event['fanart']; ?>">
+                                   value="<?php echo $ev->event['fanart']; ?>"
+                                   title="Fanart URL des Events, wird als Hintergrund verwendet">
                         </td>
                     </tr>
                     <tr>

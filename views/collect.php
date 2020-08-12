@@ -34,7 +34,8 @@ if (!defined('CONTEXT')) {
                     <label for="event_date">Startdatum:</label>
                 </td>
                 <td>
-                    <input type="date" class="short" name="event_date" id="event_date" form="n" required>
+                    <input type="date" class="short" name="event_date" id="event_date" form="n" required
+                    title="Startdatum des Events, Pflichtfeld">
                 </td>
             </tr>
             <tr>
@@ -42,7 +43,8 @@ if (!defined('CONTEXT')) {
                     <label for="event">Event:</label>
                 </td>
                 <td>
-                    <input type="text" class="short" name="event" id="event" form="n" required>
+                    <input type="text" class="short" name="event" id="event" form="n" required
+                    title="Titel des Events, Pflichtfeld">
                 </td>
             </tr>
             <tr>
@@ -50,7 +52,8 @@ if (!defined('CONTEXT')) {
                     <label for="genre">Genre:</label>
                 </td>
                 <td>
-                    <input type="text" class="short" name="genre" id="genre" form="n" required>
+                    <input type="text" class="short" name="genre" id="genre" form="n" required
+                    title="Genre oder Kategorie des Events, Pflichtfeld">
                 </td>
             </tr>
             <tr>
@@ -58,7 +61,8 @@ if (!defined('CONTEXT')) {
                     <label for="web">Website:</label>
                 </td>
                 <td>
-                    <input type="text" class="long" name="web" id="web" form="n" required>
+                    <input type="text" class="long" name="web" id="web" form="n" required
+                    title="Webseite, die das Event bekannt gibt, Pflichtfeld">
                 </td>
             </tr>
             <tr>
@@ -69,7 +73,17 @@ if (!defined('CONTEXT')) {
                     <label for="stream">Stream URL:</label>
                 </td>
                 <td>
-                    <input type="text" class="long" name="stream" id="stream" form="n">
+                    <input type="text" class="long" name="stream" id="stream" form="n"
+                    title="URL des M3U(8) Streams oder des Youtube Streams">
+                </td>
+            </tr>
+            <tr>
+                <td class="desc_form">
+                    <label for="iseditable">Stream URL änderbar:</label>
+                </td>
+                <td>
+                    <input type="checkbox" name="iseditable" id="iseditable" checked form="n"
+                           title="Stream URL darf nachträglich durch andere User geändert/korrigiert werden">
                 </td>
             </tr>
             <tr>
@@ -77,7 +91,8 @@ if (!defined('CONTEXT')) {
                     <label for="isyoutube">Youtube Link:</label>
                 </td>
                 <td>
-                    <input type="checkbox" name="isyoutube" id="isyoutube" form="n">
+                    <input type="checkbox" name="isyoutube" id="isyoutube" form="n"
+                    title="Zum Abspielen des Streams Youtube Downloader verwenden">
                 </td>
             </tr>
             <tr>
@@ -103,7 +118,8 @@ if (!defined('CONTEXT')) {
                     <label for="permalink">dauerhaft gültig (Permastream):</label>
                 </td>
                 <td>
-                    <input type="checkbox" name="permalink" id="permalink" form="n">
+                    <input type="checkbox" name="permalink" id="permalink" form="n"
+                    title="24/7 Stream ohne Zeitbegrenzung">
                 </td>
             </tr>
             <tr>
@@ -111,7 +127,8 @@ if (!defined('CONTEXT')) {
                     <label for="icon">Icon URL:</label>
                 </td>
                 <td>
-                    <input type="text" class="long" name="icon" id="icon" form="n">
+                    <input type="text" class="long" name="icon" id="icon" form="n"
+                    title="Icon URL des Events, wird als Cover oder Poster verwendet">
                 </td>
             </tr>
             <tr>
@@ -119,7 +136,8 @@ if (!defined('CONTEXT')) {
                     <label for="fanart">Poster URL:</label>
                 </td>
                 <td>
-                    <input type="text" class="long" name="fanart" id="fanart" form="n">
+                    <input type="text" class="long" name="fanart" id="fanart" form="n"
+                    title="Fanart URL des Events, wird als Hintergrund verwendet">
                 </td>
             </tr>
             <tr>

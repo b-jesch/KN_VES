@@ -22,6 +22,7 @@ class Event
             'genre' => $pars['genre'],
             'web' => trim($pars['web']),
             'stream' => trim($pars['stream']),
+            'iseditable' => isset($pars['iseditable']),
             'isyoutube' => isset($pars['isyoutube']),
             'from' => str_replace('T', ' ', $pars['from']),
             'to' => str_replace('T', ' ', $pars['to']),

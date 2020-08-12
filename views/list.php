@@ -45,8 +45,8 @@ if ($events) {
         echo empty($ev['fanart']) ? 'k.A'.PHP_EOL : '<a href="'.$ev['fanart']. '" target="_blank" rel="noopener">' .shorten($ev['fanart']).'</a>'.PHP_EOL;
         echo '<p class="small">erstellt von '.$ev['user'].' ['. implode(', ', $ev['user_id']) .']</p>'.PHP_EOL;
         echo '<form name="'.$ev['id'].'" id="'.$ev['id'].'" action="'.CONTROLLER.'" method="POST">';
-        if (empty($ev['stream']) and !$ev->$event['permalink']) {
-            echo '<input type="hidden" name="stream" id="stream" value="">'.PHP_EOL;
+        if ($ev['iseditable'] or (empty($ev['stream']) and !$ev['permalink'])) {
+            echo '<input type="hidden" name="stream_'.$ev['id'].'" id="stream_'.$ev['id'].'" value="">'.PHP_EOL;
             echo '<input type="hidden" name="insert" id="insert" value="insert">'.PHP_EOL;
             echo '<input class="button" type="button" value="Stream eintragen" 
                   title="fehlenden Stream-Link nachtragen" name="edit_stream" onclick="fPrompt('.$ev['id'].')">'.PHP_EOL;

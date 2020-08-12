@@ -6,6 +6,8 @@ require (FUNCTIONS.'functions.php');
 $c_pars = array_merge($_POST, $_GET, $_FILES);
 session_start();
 
+dump($c_pars);
+
 if (!isset($_SESSION['id'])) $c_pars['site'] = 'login';
 
 if (isset($c_pars['check'])) {
@@ -50,7 +52,8 @@ elseif (isset($c_pars['item'], $c_pars['add'])) {
     $c_pars['site'] = 'collect_2';
 }
 elseif (isset($c_pars['item'], $c_pars['insert'])) {
-    if (empty($c_pars['stream'])) $c_pars['site'] = 'list_event';
+    $urlvalue = 'stream_'.$c_pars['item'];
+    if (empty($c_pars[$urlvalue])) $c_pars['site'] = 'list_event';
     else $c_pars['site'] = 'collect_3';
 }
 
@@ -80,7 +83,7 @@ switch ($c_pars['site']) {
     case 'collect_3':
         $ev = new Event();
         $ev->read($c_pars['item']);
-        $ev->event['stream'] = $c_pars['stream'];
+        $ev->event['stream'] = $c_pars[$urlvalue];
 
         if (!in_array($_SESSION['id'], $ev->event['user_id'])) $ev->event['user_id'][] = $_SESSION['id'];
 

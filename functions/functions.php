@@ -21,8 +21,7 @@ function shorten($p, $maxlenght=90) {
 }
 
 function extlink($link) {
-    return '<a href="'.$link.'" target="_blank" rel="noopener">
-            <img src="'.EXTLINK.'" class="extlink"  alt="Link zum Stream" title="Link zum Stream"></a>';
+    return '<a href="'.$link.'" target="_blank" rel="noopener"><img src="'.EXTLINK.'" class="extlink"  alt="Link zum Stream" title="Link zum Stream"></a>';
 }
 
 # compare functions fpr usort
@@ -33,4 +32,10 @@ function compare_date($p1, $p2) {
 
 function compare_eventdate($p1, $p2) {
     return strcmp($p1['event_date'], $p2['event_date']);
+}
+
+function dump($object) {
+    if (DEBUG) {
+        echo '<pre>'.var_dump($object).'</pre>';
+    }
 }
