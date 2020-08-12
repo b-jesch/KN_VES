@@ -36,18 +36,29 @@ class Event
         );
 
         if (!empty($this->event['from'])) {
-            try {
-                $this->event['ts_from'] = DateTime::createFromFormat('Y-m-d H:i', $this->event['from'])->getTimestamp();
-            } catch (Exception $e) {}
+            if (DateTime::createFromFormat('Y-m-d H:i', $this->event['from'])) {
+                $dt = DateTime::createFromFormat('Y-m-d H:i', $this->event['from']);
+            }
+            elseif (DateTime::createFromFormat('d.m.Y H:i', $this->event['from'])) {
+                $dt = DateTime::createFromFormat('d.m.Y H:i', $this->event['from']);
+            }
+            else {
+                $dt = false;
+            }
+            if ($dt) $this->event['ts_from'] = $dt->getTimestamp();
         }
-
         if (!empty($this->event['to'])) {
-            try {
-                $this->event['ts_to'] = DateTime::createFromFormat('Y-m-d H:i', $this->event['to'])->getTimestamp();
-                $this->event['retention_time'] = $this->event['ts_to'] + RETENTION_TIME_TEMP;
-            } catch (Exception $e) {}
-        } else {
-            $this->event['retention_time'] = $this->event['id'] + RETENTION_TIME_PERMA;
+            if (DateTime::createFromFormat('Y-m-d H:i', $this->event['to'])) {
+                $dt = DateTime::createFromFormat('Y-m-d H:i', $this->event['to']);
+            }
+            elseif (DateTime::createFromFormat('d.m.Y H:i', $this->event['to'])) {
+                $dt = DateTime::createFromFormat('d.m.Y H:i', $this->event['to']);
+            }
+            else {
+                $dt = false;
+            }
+            if ($dt) $this->event['ts_to'] = $dt->getTimestamp();
+            $this->event['retention_time'] = $this->event['ts_to'] + RETENTION_TIME_TEMP;
         }
     }
 
