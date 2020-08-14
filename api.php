@@ -39,7 +39,7 @@ if (isset($_GET['playlist'])) {
         echo '<pre>';
         echo '[size=12][b]'.gerTF($ev->event['event_date'], 'd.m.Y', 'Y-m-d').'[/b][/size]'.PHP_EOL;
         echo '[size=14]'.$ev->event['event'].' ['.$ev->event['genre'].'][/size]'.PHP_EOL.PHP_EOL;
-        echo nl2br($ev->event['plot']).PHP_EOL.PHP_EOL;
+        echo $ev->event['plot'].PHP_EOL.PHP_EOL;
         if (!empty($ev->event['web'])) {
             echo 'WebURL: [url='.$ev->event['web'].']'.shorten($ev->event['web']).'[/url]'.PHP_EOL.PHP_EOL;
         }
