@@ -21,7 +21,10 @@ if ($events) {
     usort($event_list, 'compare_eventdate');
 
     foreach ($event_list as $ev) {
-        echo '<h3>'.gerTF($ev['event_date'], 'd.m.Y', 'Y-m-d').'</h3>'.PHP_EOL;
+        echo '<h3>';
+        echo gerTF($ev['event_date'], 'd.m.Y', 'Y-m-d');
+        copylink($ev['id']);
+        echo '</h3>'.PHP_EOL;
         echo '<h2>'.$ev['event'].' ['.$ev['genre'].']</h2>'.PHP_EOL;
         echo '<p>'.nl2br($ev['plot']).'</p>'.PHP_EOL;
         if (!empty($ev['web'])) {

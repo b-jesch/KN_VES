@@ -83,8 +83,8 @@ hr {
     width: 22px;
     height: 22px;
     border: none;
-    margin: 2px 5px -3px 5px;
-    vertical-align: baseline;
+    margin: -3px 5px 0 0;
+    float: right;
 }
 
 .select {
@@ -156,19 +156,19 @@ h1 {
 }
 
 h2 {
-    color: #575757;
+    color: #5f5f5f;
     font-family: Verdana, Arial, sans-serif;
     font-size: 14px;
     font-weight: bold;
-    padding: 2px;
+    padding: 8px 3px;
     margin: 2px;
 }
 
 h3 {
     background-color: #9d9d9d;
     font-size: 12px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding-top: 8px;
+    padding-bottom: 8px;
     padding-left: 10px;
     font-family: Verdana, Arial, Helevtica, sans-serif;
     width: 99%;

@@ -26,7 +26,7 @@ define('VIEWS', 'views/');
 define('CSS', 'css/styles.css');
 define('DATA', 'database/');
 define('MEDIA', 'database/media/');
-define('API', 'api/api.php');
+define('API', 'api.php');
 
 # Views
 
@@ -48,6 +48,7 @@ define('FUNCTIONS', 'functions/');
 
 # Helpers, Graphics
 define('EXTLINK', 'css/extlink.png');   # Grafik externer Link
+define('COPYLINK', 'css/copy.png');     # Grafik kopieren
 define('HEADER', 'header.php');         # Header
 define('FOOTER', 'footer.php');         # Footer
 

@@ -15,13 +15,21 @@ function gerTF($datetime, $f_out, $f_in='Y-m-d H:i') {
     }
 }
 
-function shorten($p, $maxlenght=90) {
+function shorten($p, $maxlenght=120) {
     if (strlen($p) > $maxlenght -3) return substr($p,0,$maxlenght-3).'...';
     return $p;
 }
 
 function extlink($link) {
     return '<a href="'.$link.'" target="_blank" rel="noopener"><img src="'.EXTLINK.'" class="extlink"  alt="Link zum Stream" title="Link zum Stream"></a>';
+}
+
+function copylink($link) {
+    echo "<a target='popup' ";
+    echo "onclick=\"window.open('', 'popup', 'width=580,height=360,scrollbars=yes,toolbar=no,status=no,resizable=yes,";
+    echo "menubar=no,location=no,directories=no,top=30,left=30') ";
+    echo "\"href='".API."?get_event&id=$link'>";
+    echo "<img class='extlink' src='".COPYLINK."' title='Inhalt des Events in BBCode zum Kopieren anzeigen'></a>";
 }
 
 # compare functions fpr usort
