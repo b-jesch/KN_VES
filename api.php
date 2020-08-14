@@ -53,6 +53,9 @@ if (isset($_GET['playlist'])) {
             echo ' bis: ';
             echo empty($ev->event['to']) ? 'k.A'.PHP_EOL : gerTF($ev->event['to'], 'd.m.y H:i').PHP_EOL;
         }
+        echo PHP_EOL.PHP_EOL;
+        echo 'Verfügbar auf dem [url='.KN_VES_ANNOUNCEMENT.']Kodinerds Event Server[/url] ';
+        echo 'und im [url='.KN_VES_ANNOUNCEMENT.']Kodinerds Event Service[/url] Addon.'.PHP_EOL;
         echo '</pre>';
 
     } else {

@@ -10,12 +10,13 @@ define('ROOT', 'https://events.kodinerds.net/');
 # server testing
 # define('ROOT', 'https://event.bj4mw.duckdns.org/');
 
-# Kodinerds User URL/Cookies
+# Kodinerds User URL/Cookies/Links
 
 define('KN_USER', 'https://www.kodinerds.net/index.php/User/');
 define('KN_LOGIN', 'https://www.kodinerds.net/index.php/Login/');
 define('COOKIE_PATH', $_SERVER['DOCUMENT_ROOT'].'/cookie.txt');
 
+define('KN_VES_ANNOUNCEMENT', 'https://www.kodinerds.net/index.php/Thread/70207-RELEASE-KN-Video-Event-Service-und-Video-Event-Server/');
 # --------------------------------------------------------- #
 
 define('CONTROLLER', 'index.php');
