@@ -38,7 +38,7 @@ if ($events) {
         } else {
             echo '<br>gültig ab: ';
             echo empty($ev['from']) ? 'k.A'.PHP_EOL : gerTF($ev['from'], 'd.m.y H:i').PHP_EOL;
-            echo ' bis: ';
+            echo ' bis ';
             echo empty($ev['to']) ? 'k.A'.PHP_EOL : gerTF($ev['to'], 'd.m.y H:i').PHP_EOL;
         }
         echo '<hr>'.PHP_EOL;

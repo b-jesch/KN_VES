@@ -15,7 +15,7 @@ function gerTF($datetime, $f_out, $f_in='Y-m-d H:i') {
     }
 }
 
-function shorten($p, $maxlenght=120) {
+function shorten($p, $maxlenght=90) {
     if (strlen($p) > $maxlenght -3) return substr($p,0,$maxlenght-3).'...';
     return $p;
 }

@@ -50,7 +50,7 @@ if (isset($_GET['playlist'])) {
         } else {
             echo 'gültig ab: ';
             echo empty($ev->event['from']) ? 'k.A'.PHP_EOL : gerTF($ev->event['from'], 'd.m.y H:i');
-            echo ' bis: ';
+            echo ' bis ';
             echo empty($ev->event['to']) ? 'k.A'.PHP_EOL : gerTF($ev->event['to'], 'd.m.y H:i').PHP_EOL;
         }
         echo PHP_EOL.PHP_EOL;
