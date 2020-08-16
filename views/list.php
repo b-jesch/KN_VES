@@ -48,6 +48,7 @@ if ($events) {
         echo empty($ev['fanart']) ? 'k.A'.PHP_EOL : '<a href="'.$ev['fanart']. '" target="_blank" rel="noopener">' .shorten($ev['fanart']).'</a>'.PHP_EOL;
         echo '<p class="small">erstellt von '.$ev['user'].' ['. implode(', ', $ev['user_id']) .']</p>'.PHP_EOL;
         echo '<form name="'.$ev['id'].'" id="'.$ev['id'].'" action="'.CONTROLLER.'" method="POST">';
+        echo '<input type="hidden" name="item" value="'.$ev['id'].'">'.PHP_EOL;
         if ($ev['iseditable'] or (empty($ev['stream']) and !$ev['permalink'])) {
             echo '<input type="hidden" name="stream_'.$ev['id'].'" id="stream_'.$ev['id'].'" value="">'.PHP_EOL;
             echo '<input type="hidden" name="insert" id="insert" value="insert">'.PHP_EOL;
@@ -57,7 +58,6 @@ if ($events) {
         if (in_array($_SESSION['id'], $ev['user_id'])) {
             echo '<input class="button" type="submit" value="Bearbeiten" title="Eintrag bearbeiten" name="edit">'.PHP_EOL;
             echo '<input class="button_red" type="submit" value="Löschen" title="Eintrag löschen" name="delete" onclick="return fConfirm()">'.PHP_EOL;
-            echo '<input type="hidden" name="item" value="'.$ev['id'].'">'.PHP_EOL;
         }
         echo '</form>';
     }
