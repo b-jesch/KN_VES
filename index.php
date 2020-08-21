@@ -107,12 +107,12 @@ switch ($c_pars['site']) {
 
     case 'login':
         $title = TITLE.'Check In';
-        $view = VIEWS.DEFAULTPAGE;
+        $view = VIEWS.LOGIN;
         break;
 
     default:
         # Bootstrap
-        $title = TITLE.'Check In';
+        $title = TITLE.'Events auflisten';
         $view = VIEWS.DEFAULTPAGE;
 }
 

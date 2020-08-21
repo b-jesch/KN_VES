@@ -31,12 +31,14 @@ define('API', 'api.php');
 
 # Views
 
-define ('DEFAULTPAGE', 'login.php');        # Bootstrap
+define ('DEFAULTPAGE', 'list.php');        # Bootstrap
 define ('ERRORPAGE', 'error.php');          # Fehlerseite
 
 define ('LISTVIEW', 'list.php');            # Eventliste
 define ('COLLECT', 'collect.php');          # Erfassung
 define ('EDIT', 'edit.php');                # Bearbeitung
+define ('LOGIN', 'login.php');              # Login
+
 
 define ('TITLE', 'Kodinerds Event Server: ');
 # Model
