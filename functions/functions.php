@@ -15,6 +15,12 @@ function gerTF($datetime, $f_out, $f_in='Y-m-d H:i') {
     }
 }
 
+function gerTFfromTimestamp($timestamp, $f_out='d.m.Y') {
+    if ($timestamp > 0) {
+        return DateTime::createFromFormat('U', $timestamp)->format($f_out);
+    }
+}
+
 function shorten($p, $maxlenght=90) {
     if (strlen($p) > $maxlenght -3) return substr($p,0,$maxlenght-3).'...';
     return $p;

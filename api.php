@@ -23,14 +23,16 @@ if (isset($_GET['playlist'])) {
 
 } elseif (isset($_GET['maintenance'])) {
     $files = scanFolder(DATA, ['media', '.', '..']);
+    $count = 0;
     foreach ($files as $file) {
         $ev = new Event();
         $ev->read($file);
         if (isset($ev->event['retention_time']) and $ev->event['retention_time'] < time()) {
-            # echo $file.' should be deleted';
             unlink(DATA . $file);
+            $count++;
         }
     }
+    echo "$count events removed";
 
 } elseif (isset($_GET['get_event'], $_GET['id']) and !empty($_GET['id'])) {
     $ev = new Event();
