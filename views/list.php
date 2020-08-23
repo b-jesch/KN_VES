@@ -32,7 +32,7 @@ if ($events) {
         }
         echo '<hr>'.PHP_EOL;
         echo 'Stream: ';
-        echo empty($ev['stream']) ? 'k.A. <span style="color: red; font-size: 1.5em;">&#9998;</span>'.PHP_EOL : shorten($ev['stream']).extlink($ev['stream']).PHP_EOL;
+        echo empty($ev['stream']) ? 'k.A. <img src="'.EDITLINK.'" class="extlink" nofloat title="Stream muss nachgetragen werden">'.PHP_EOL : shorten($ev['stream']).extlink($ev['stream']).PHP_EOL;
         if ($ev['permalink']) {
             echo '<br>Permalink'.PHP_EOL;
         } else {

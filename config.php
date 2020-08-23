@@ -50,8 +50,10 @@ define('CLASSES', 'classes/');
 define('FUNCTIONS', 'functions/');
 
 # Helpers, Graphics
-define('EXTLINK', 'css/extlink.png');   # Grafik externer Link
-define('COPYLINK', 'css/copy.png');     # Grafik kopieren
+define('EXTLINK', 'css/extlink.svg');   # Grafik externer Link
+define('COPYLINK', 'css/copy.svg');     # Grafik kopieren
+define('EDITLINK', 'css/stift.svg');    # Grafik bearbeiten
+
 define('HEADER', 'header.php');         # Header
 define('FOOTER', 'footer.php');         # Footer
 
