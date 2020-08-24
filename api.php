@@ -21,7 +21,7 @@ if (isset($_GET['playlist'])) {
     header('Content-type: application/json');
     echo json_encode($response);
 
-} elseif (isset($_GET['maintenance'])) {
+} elseif (isset($_GET['maintenance']) or $argv[1] == 'maintenance') {
     $files = scanFolder(DATA, ['media', '.', '..']);
     $count = 0;
     foreach ($files as $file) {
@@ -32,7 +32,7 @@ if (isset($_GET['playlist'])) {
             $count++;
         }
     }
-    echo "$count events removed";
+    echo "$count event(s) removed".PHP_EOL;
 
 } elseif (isset($_GET['get_event'], $_GET['id']) and !empty($_GET['id'])) {
     $ev = new Event();
