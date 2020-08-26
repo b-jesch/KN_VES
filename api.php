@@ -26,10 +26,13 @@ if (isset($_GET['playlist'])) {
     $count = 0;
     foreach ($files as $file) {
         $ev = new Event();
-        $ev->read($file);
-        if (isset($ev->event['retention_time']) and $ev->event['retention_time'] < time()) {
-            unlink(DATA . $file);
-            $count++;
+        if ($ev->read($file)) {
+            if (isset($ev->event['retention_time']) and $ev->event['retention_time'] < time()) {
+                if (is_file(MEDIA.basename($ev->event['icon']))) unlink(MEDIA.basename($ev->event['icon']));
+                if (is_file(MEDIA.basename($ev->event['fanart']))) unlink(MEDIA.basename($ev->event['fanart']));
+                unlink(DATA . $file);
+                $count++;
+            }
         }
     }
     echo "$count event(s) removed".PHP_EOL;
