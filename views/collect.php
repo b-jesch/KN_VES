@@ -9,7 +9,7 @@ if (!defined('CONTEXT')) {
 }
 
 ?>
-<form name="n" id="n" action="<?php echo CONTROLLER; ?>" method="post">
+<form name="n" id="n" action="<?php echo CONTROLLER; ?>" method="post" enctype="multipart/form-data">
     <div class="content" type="large">
         <h1><?php echo $title; ?></h1>
         <p>Hier werden anstehende Events in die Datenbank aufgenommen. Du kannst diese Daten noch nachträglich
@@ -124,20 +124,26 @@ if (!defined('CONTEXT')) {
             </tr>
             <tr>
                 <td class="desc_form">
-                    <label for="icon">Icon URL:</label>
+                    <label for="icon">Icon/Poster URL:</label>
                 </td>
                 <td>
-                    <input type="text" class="long" name="icon" id="icon" form="n"
-                    title="Icon URL des Events, wird als Cover oder Poster verwendet">
+                    <input type="text" class="middle" name="icon" id="icon" form="n"
+                    title="Icon URL des Events, wird als Cover oder Poster verwendet"> oder:
+                    <input class="fileupload" type="file" name='icon_upload' id='icon_upload' accept="image/*"
+                           onchange="window.n.icon.value = this.value.replace('C:\\fakepath\\', '');">
+                    <label for="icon_upload" class="button" >Hochladen</label>
                 </td>
             </tr>
             <tr>
                 <td class="desc_form">
-                    <label for="fanart">Poster URL:</label>
+                    <label for="fanart">Fanart URL:</label>
                 </td>
                 <td>
-                    <input type="text" class="long" name="fanart" id="fanart" form="n"
-                    title="Fanart URL des Events, wird als Hintergrund verwendet">
+                    <input type="text" class="middle" name="fanart" id="fanart" form="n"
+                    title="Fanart URL des Events, wird als Hintergrund verwendet"> oder:
+                    <input class="fileupload" type="file" name='fanart_upload' id='fanart_upload' accept="image/*"
+                           onchange="window.n.fanart.value = this.value.replace('C:\\fakepath\\', '');">
+                    <label for="fanart_upload" class="button" >Hochladen</label>
                 </td>
             </tr>
             <tr>

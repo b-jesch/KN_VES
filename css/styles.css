@@ -36,26 +36,17 @@ hr {
 }
 
 .fileupload + label {
-    font-family: Verdana, Arial, Helvetica, sans-serif;
-    font-size: 12px;
-    font-weight: bold;
-    text-align: center;
-    line-height: 30px;
-    color: white;
-    width:150px;
-    height:30px;
+    line-height: 28px;
     background-color: #336699;
     display: inline-block;
-    margin: 8px;
     border-color: #000000;
 }
-
-.fileupload:focus + label,
-.fileupload + label:hover {
+/*
+.fileupload:focus + label, .fileupload + label:hover {
     background-color: red;
 }
-
-.button, .button_red, .select {
+*/
+.button, .button_red, .select, .fileupload + label {
     background-color: #1e4058;
     width:125px;
     color: white;
@@ -65,10 +56,11 @@ hr {
     font-family: Verdana, Arial, Helvetica, sans-serif;
     font-size:12px;
     font-weight: normal;
-    margin: 8px 16px 8px 0;
+    text-align: center;
+    margin: 8px 16px 8px 8px;
 }
 
-.button:hover {
+.button:hover, .fileupload + label:hover {
     background-color: rgba(12, 31, 40, 0.97);
 }
 
@@ -131,6 +123,10 @@ input[type=text], input[type=password], input[type=datetime-local], input[type=d
 
 .short {
     width: 190px;
+}
+
+.middle {
+    width: 350px;
 }
 
 .long {

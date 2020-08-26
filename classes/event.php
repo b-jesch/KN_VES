@@ -35,6 +35,9 @@ class Event
             'retention_time' => 0
         );
 
+        # some time calculations
+
+        $dt = false;
         if (!empty($this->event['from'])) {
             if (DateTime::createFromFormat('Y-m-d H:i', $this->event['from'])) {
                 $dt = DateTime::createFromFormat('Y-m-d H:i', $this->event['from']);
@@ -42,11 +45,14 @@ class Event
             elseif (DateTime::createFromFormat('d.m.Y H:i', $this->event['from'])) {
                 $dt = DateTime::createFromFormat('d.m.Y H:i', $this->event['from']);
             }
-            else {
-                $dt = false;
-            }
-            if ($dt) $this->event['ts_from'] = $dt->getTimestamp();
+        } else {
+            $dt = DateTime::createFromFormat('Y-m-d', $this->event['event_date']);
         }
+        if ($dt) {
+            $this->event['ts_from'] = $dt->getTimestamp();
+            $this->event['ts_to'] = $dt->getTimestamp();
+        }
+
         if (!empty($this->event['to'])) {
             if (DateTime::createFromFormat('Y-m-d H:i', $this->event['to'])) {
                 $dt = DateTime::createFromFormat('Y-m-d H:i', $this->event['to']);
@@ -54,12 +60,9 @@ class Event
             elseif (DateTime::createFromFormat('d.m.Y H:i', $this->event['to'])) {
                 $dt = DateTime::createFromFormat('d.m.Y H:i', $this->event['to']);
             }
-            else {
-                $dt = false;
-            }
             if ($dt) $this->event['ts_to'] = $dt->getTimestamp();
-            $this->event['retention_time'] = $this->event['ts_to'] + RETENTION_TIME_TEMP;
         }
+        $this->event['retention_time'] = ($this->event['permalink']) ? $this->event['ts_from'] + RETENTION_TIME_PERMA : $this->event['ts_to'] + RETENTION_TIME_TEMP;
     }
 
     function read($event_id) {

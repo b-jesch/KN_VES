@@ -75,6 +75,10 @@ switch ($c_pars['site']) {
         } else {
             $ev->create($c_pars, $_SESSION['user'], $_SESSION['id']);
         }
+
+        if ($c_pars['icon_upload']['error'] == UPLOAD_ERR_OK) $ev->event['icon'] = handleUpload('icon', $c_pars['item'], $c_pars['icon_upload']);
+        if ($c_pars['fanart_upload']['error'] == UPLOAD_ERR_OK) $ev->event['fanart'] = handleUpload('fanart', $c_pars['item'], $c_pars['fanart_upload']);
+
         $ev->persist();
         $title = TITLE.'Events auflisten';
         $view = VIEWS.LISTVIEW;
@@ -98,11 +102,14 @@ switch ($c_pars['site']) {
         break;
 
     case 'delete':
-        if (is_file(DATA.$c_pars['item'])) {
+        $ev = new Event();
+        if ($ev->read($c_pars['item'])) {
+            if (is_file(MEDIA.basename($ev->event['icon']))) unlink(MEDIA.basename($ev->event['icon']));
+            if (is_file(MEDIA.basename($ev->event['fanart']))) unlink(MEDIA.basename($ev->event['fanart']));
             unlink(DATA.$c_pars['item']);
-            $title = TITLE.'Events auflisten';
-            $view = VIEWS.LISTVIEW;
         }
+        $title = TITLE.'Events auflisten';
+        $view = VIEWS.LISTVIEW;
         break;
 
     case 'login':
