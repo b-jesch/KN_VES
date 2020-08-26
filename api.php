@@ -43,10 +43,10 @@ if (isset($_GET['playlist'])) {
         echo '[size=14]'.$ev->event['event'].' ['.$ev->event['genre'].'][/size]'.PHP_EOL.PHP_EOL;
         echo $ev->event['plot'].PHP_EOL.PHP_EOL;
         if (!empty($ev->event['web'])) {
-            echo 'WebURL: [url='.$ev->event['web'].']'.shorten($ev->event['web']).'[/url]'.PHP_EOL.PHP_EOL;
+            echo 'WebURL: [url='.$ev->event['web'].']'.shorten($ev->event['web']).'[/url]'.PHP_EOL;
         }
         echo 'Stream: ';
-        echo empty($ev->event['stream']) ? 'k.A. [color=red]&#9998;[/color]'.PHP_EOL : '[url='.$ev->event['stream'].']'.shorten($ev->event['stream']).'[/url]'.PHP_EOL.PHP_EOL;
+        echo empty($ev->event['stream']) ? 'k.A. [color=red]&#9998;[/color]'.PHP_EOL.PHP_EOL : '[url='.$ev->event['stream'].']'.shorten($ev->event['stream']).'[/url]'.PHP_EOL.PHP_EOL;
         if ($ev->event['permalink']) {
             echo 'Permalink'.PHP_EOL;
         } else {
@@ -55,7 +55,7 @@ if (isset($_GET['playlist'])) {
             echo ' bis ';
             echo empty($ev->event['to']) ? 'k.A'.PHP_EOL : gerTF($ev->event['to'], 'd.m.y H:i').PHP_EOL;
         }
-        echo PHP_EOL.PHP_EOL;
+        echo PHP_EOL;
         echo 'Verfügbar auf dem [url='.ROOT.']Kodinerds Event Server[/url] ';
         echo 'und im [url='.KN_VES_ANNOUNCEMENT.']Kodinerds Event Service[/url] Addon.'.PHP_EOL;
         echo '</pre>';
