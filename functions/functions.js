@@ -15,6 +15,6 @@ function fPrompt(sid) {
 function winBBCopen(url, popup, width, height) {
     var left = (screen.width - width) / 2;
     var top = (screen.height - height) / 2;
-    var bbcWin = window.open(url, popup,'menubar=no, location=no, resizable=yes, width=' + width +
-        ',height=' + height + ',top=' + top + ',left=' + left);
+    var bbcWin = window.open(url, popup,'menubar=no, toolbar=no, directories=no, status=no, location=no, scrollbars=auto, resizable=yes, width=' + width +
+        ', height=' + height + ', top=' + top + ', left=' + left);
 }
