@@ -31,10 +31,7 @@ function extlink($link) {
 }
 
 function copylink($link) {
-    echo "<a target='popup' ";
-    echo "onclick=\"window.open('', 'popup', 'width=580,height=360,scrollbars=yes,toolbar=no,status=no,resizable=yes,";
-    echo "menubar=no,location=no,directories=no,top=30,left=30') ";
-    echo "\"href='".API."?get_event&id=$link'>";
+    echo "<a href='#' onclick=\"winBBCopen('".API."?get_event&id=$link"."', 'BBCode Window', 800, 400);\">".PHP_EOL;
     echo "<img class='extlink' src='".COPYLINK."' title='Inhalt des Events in BBCode zum Kopieren anzeigen'></a>";
 }
 
