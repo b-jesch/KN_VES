@@ -59,12 +59,10 @@ elseif (isset($c_pars['item'], $c_pars['insert'])) {
 
 switch ($c_pars['site']) {
     case 'list_event':
-        $title = TITLE.'Events auflisten';
         $view = VIEWS.LISTVIEW;
         break;
 
     case 'collect':
-        $title = TITLE.'Eventdaten erfassen';
         $view = VIEWS.COLLECT;
         break;
 
@@ -80,7 +78,6 @@ switch ($c_pars['site']) {
         if ($c_pars['fanart_upload']['error'] == UPLOAD_ERR_OK) $ev->event['fanart'] = handleUpload('fanart', $c_pars['item'], $c_pars['fanart_upload']);
 
         $ev->persist();
-        $title = TITLE.'Events auflisten';
         $view = VIEWS.LISTVIEW;
         break;
 
@@ -92,12 +89,10 @@ switch ($c_pars['site']) {
         if (!in_array($_SESSION['id'], $ev->event['user_id'])) $ev->event['user_id'][] = $_SESSION['id'];
 
         $ev->persist();
-        $title = TITLE.'Events auflisten';
         $view = VIEWS.LISTVIEW;
         break;
 
     case 'edit':
-        $title = TITLE.'Event bearbeiten';
         $view = VIEWS.EDIT;
         break;
 
@@ -108,18 +103,15 @@ switch ($c_pars['site']) {
             if (is_file(MEDIA.basename($ev->event['fanart']))) unlink(MEDIA.basename($ev->event['fanart']));
             unlink(DATA.$c_pars['item']);
         }
-        $title = TITLE.'Events auflisten';
         $view = VIEWS.LISTVIEW;
         break;
 
     case 'login':
-        $title = TITLE.'Check In';
         $view = VIEWS.LOGIN;
         break;
 
     default:
         # Bootstrap
-        $title = TITLE.'Events auflisten';
         $view = VIEWS.DEFAULTPAGE;
 }
 

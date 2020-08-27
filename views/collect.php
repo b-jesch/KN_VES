@@ -11,7 +11,7 @@ if (!defined('CONTEXT')) {
 ?>
 <form name="n" id="n" action="<?php echo CONTROLLER; ?>" method="post" enctype="multipart/form-data">
     <div class="content" type="large">
-        <h1><?php echo $title; ?></h1>
+        <h1><?php echo TITLE.'Eventdaten erfassen'; ?></h1>
         <p>Hier werden anstehende Events in die Datenbank aufgenommen. Du kannst diese Daten noch nachträglich
             ändern. Zur Identifikation wird Deine User-ID herangezogen. Zusätzlich dürfen auch weitere User das
             Event bearbeiten, wenn Du deren User-ID im Feld "weitere" einträgst.

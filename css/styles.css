@@ -18,7 +18,7 @@ hr {
     height:2px;
     border: 0;
     margin: 10px 0;
-    background-image: linear-gradient(to right,#eee,#808080,#eee);
+    background-image: linear-gradient(to right,#e3e2e2,#808080,#e3e2e2);
     clear: both;
 }
 
@@ -158,22 +158,22 @@ h1 {
 }
 
 h2 {
-    color: #5f5f5f;
+    background-color: #9d9d9d;
     font-family: Verdana, Arial, sans-serif;
     font-size: 14px;
-    font-weight: bold;
-    padding: 8px 3px;
-    margin: 2px;
+    font-weight: normal;
+    padding: 8px 10px;
+    margin: 5px 2px;
 }
 
 h3 {
-    background-color: #9d9d9d;
-    font-size: 12px;
+    color: #5f5f5f;
+    font-size: 14px;
+    font-weight: bold;
     padding-top: 8px;
     padding-bottom: 8px;
     padding-left: 10px;
     font-family: Verdana, Arial, Helevtica, sans-serif;
-    width: 99%;
 }
 
 h4, caption {
@@ -223,4 +223,20 @@ h4, caption {
 
 .content table {
     width: inherit;
+}
+
+.add_area {
+    width: 99%;
+    padding: 2px;
+    background-color: silver;
+    margin: 3px auto 8px;
+}
+
+.content_area {
+    width: 97%;
+    padding: 8px;
+    background-color: #e3e2e2;
+    border: 1px dotted grey;
+    border-radius: 5px;
+    margin: 3px auto;
 }

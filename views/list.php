@@ -9,8 +9,18 @@ if (!defined('CONTEXT')) {
 }
 
 echo '<div class="content" type="large">';
-echo '<h1>'.$title.'</h1>';
+echo '<h1>'.TITLE.'Events auflisten und eintragen</h1>';
 
+?>
+
+<div class="add_area">
+    <form name="n" id="n" action="<?php echo CONTROLLER; ?>" method="post">
+        <input type="submit" class="button" name="add" title="neuen Eintrag auf dem Server erstellen" value="Hinzufügen">
+        <input type="hidden" name="site" value="collect">
+    </form>
+</div>
+
+<?php
 $events = scanFolder(DATA, ['media', '..', '.']);
 if ($events) {
     foreach ($events as $event) {
@@ -21,11 +31,13 @@ if ($events) {
     usort($event_list, 'compare_eventdate');
 
     foreach ($event_list as $ev) {
-        echo '<h3>';
+        echo '<div class="content_area"><h2>';
         echo gerTF($ev['event_date'], 'd.m.Y', 'Y-m-d');
+
+        echo '</h2>'.PHP_EOL;
+        echo '<h3>'.$ev['event'].' ['.$ev['genre'].']';
         copylink($ev['id']);
         echo '</h3>'.PHP_EOL;
-        echo '<h2>'.$ev['event'].' ['.$ev['genre'].']</h2>'.PHP_EOL;
         echo '<p>'.nl2br($ev['plot']).'</p>'.PHP_EOL;
         if (!empty($ev['web'])) {
             echo '<a href="'.$ev['web'].'" target="_blank" rel="noopener">'.shorten($ev['web']).'</a>'.PHP_EOL;
@@ -46,14 +58,14 @@ if ($events) {
         echo empty($ev['icon']) ? 'k.A'.PHP_EOL : '<a href="'.$ev['icon']. '" target="_blank" rel="noopener">' .shorten($ev['icon']).'</a>'.PHP_EOL;
         echo '<br>Poster: ';
         echo empty($ev['fanart']) ? 'k.A'.PHP_EOL : '<a href="'.$ev['fanart']. '" target="_blank" rel="noopener">' .shorten($ev['fanart']).'</a>'.PHP_EOL;
-        echo '<p class="small">erstellt von '.$ev['user'].' ['. implode(', ', $ev['user_id']) .'], wird entfernt am '.gerTFfromTimestamp($ev['retention_time']).'</p>'.PHP_EOL;
+        echo '<p class="small">erstellt von '.$ev['user'].' ['. implode(', ', $ev['user_id']) .'], wird entfernt am '.gerTFfromTimestamp($ev['retention_time']).'</p></div>'.PHP_EOL;
         echo '<form name="'.$ev['id'].'" id="'.$ev['id'].'" action="'.CONTROLLER.'" method="POST">';
         echo '<input type="hidden" name="item" value="'.$ev['id'].'">'.PHP_EOL;
         if ($ev['iseditable'] or (empty($ev['stream']) and !$ev['permalink'])) {
             echo '<input type="hidden" name="stream_'.$ev['id'].'" id="stream_'.$ev['id'].'" value="">'.PHP_EOL;
             echo '<input type="hidden" name="insert" id="insert" value="insert">'.PHP_EOL;
             echo '<input class="button" type="button" value="Stream eintragen" 
-                  title="fehlenden Stream-Link nachtragen" name="edit_stream" onclick="fPrompt('.$ev['id'].')">'.PHP_EOL;
+                  title="Stream-Link nachtragen oder ändern" name="edit_stream" onclick="fPrompt('.$ev['id'].')">'.PHP_EOL;
         }
         if (in_array($_SESSION['id'], $ev['user_id'])) {
             echo '<input class="button" type="submit" value="Bearbeiten" title="Eintrag bearbeiten" name="edit">'.PHP_EOL;
@@ -62,12 +74,9 @@ if ($events) {
         echo '</form>';
     }
     echo '<hr>'.PHP_EOL;
+    echo '<div class="add_area">'.PHP_EOL;
+    echo '<input type="submit" form="n" class="button" name="add" title="neuen Eintrag auf dem Server erstellen" value="Hinzufügen">'.PHP_EOL;
+    echo '</div>'.PHP_EOL;
 }
-?>
-
-<form name="n" id="n" action="<?php echo CONTROLLER; ?>" method="post">
-    <input type="submit" class="button" name="add" title="neuen Eintrag auf dem Server erstellen" value="Hinzufügen">
-    <input type="hidden" name="site" value="collect">
-</form>
-</div>
+echo '</div>'.PHP_EOL;
 

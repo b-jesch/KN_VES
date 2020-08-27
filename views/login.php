@@ -13,7 +13,7 @@ if (!defined('CONTEXT')) {
 
 <form name="n" id="n" action="<?php echo CONTROLLER; ?>" method="post">
     <div class="content">
-        <h1><?php echo $title; ?></h1>
+        <h1><?php echo TITLE.'Check In'; ?></h1>
         <p>Du bist ein Mitglied der Kodinerds Community und möchtest Informationen und Streaming-Details zu interessanten
             Events für das Kodinerds Streaming Addon einpflegen? Du kannst dich mit deinen Kodinerds Zugangsdaten einloggen.
         </p>
