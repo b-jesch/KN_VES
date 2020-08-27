@@ -72,8 +72,8 @@ if ($events) {
             echo '<input class="button_red" type="submit" value="Löschen" title="Eintrag löschen" name="delete" onclick="return fConfirm()">'.PHP_EOL;
         }
         echo '</form>';
+        echo '<hr>'.PHP_EOL;
     }
-    echo '<hr>'.PHP_EOL;
     echo '<div class="add_area">'.PHP_EOL;
     echo '<input type="submit" form="n" class="button" name="add" title="neuen Eintrag auf dem Server erstellen" value="Hinzufügen">'.PHP_EOL;
     echo '</div>'.PHP_EOL;
