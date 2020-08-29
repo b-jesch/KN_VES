@@ -61,11 +61,11 @@ hr {
 }
 
 .button_red {
-    background-color: red;
+    background-color: #c10000;
 }
 
 .button_red:hover {
-    background-color: #A10000;
+    background-color: #790000;
 }
 
 .extlink {
@@ -209,7 +209,7 @@ h4, caption {
     width: 400px;
     margin: 100px auto;
     padding: 10px;
-    background-color: #F3F3F3;
+    background-color: #F9F9F9;
 }
 
 [type=large] {
@@ -234,7 +234,7 @@ h4, caption {
 .content_area {
     width: 97%;
     padding: 8px;
-    background-color: #e3e2e2;
+    background-color: #EEE;
     border: 1px dotted grey;
     border-radius: 5px;
     margin: 3px auto;

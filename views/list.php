@@ -59,6 +59,7 @@ if ($events) {
         echo '<br>Poster: ';
         echo empty($ev['fanart']) ? 'k.A'.PHP_EOL : '<a href="'.$ev['fanart']. '" target="_blank" rel="noopener">' .shorten($ev['fanart']).'</a>'.PHP_EOL;
         echo '<p class="small">erstellt von '.$ev['user'].' ['. implode(', ', $ev['user_id']) .'], wird entfernt am '.gerTFfromTimestamp($ev['retention_time']).'</p></div>'.PHP_EOL;
+        echo '<div class="add_area">'.PHP_EOL;
         echo '<form name="'.$ev['id'].'" id="'.$ev['id'].'" action="'.CONTROLLER.'" method="POST">';
         echo '<input type="hidden" name="item" value="'.$ev['id'].'">'.PHP_EOL;
         if ($ev['iseditable'] or (empty($ev['stream']) and !$ev['permalink'])) {
@@ -71,7 +72,7 @@ if ($events) {
             echo '<input class="button" type="submit" value="Bearbeiten" title="Eintrag bearbeiten" name="edit">'.PHP_EOL;
             echo '<input class="button_red" type="submit" value="Löschen" title="Eintrag löschen" name="delete" onclick="return fConfirm()">'.PHP_EOL;
         }
-        echo '</form>';
+        echo '</form></div>';
         echo '<hr>'.PHP_EOL;
     }
     echo '<div class="add_area">'.PHP_EOL;
