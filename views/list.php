@@ -79,7 +79,7 @@ if ($events) {
     echo '<input type="submit" form="n" class="button" name="add" title="neuen Eintrag auf dem Server erstellen" value="Hinzufügen">'.PHP_EOL;
     echo '</div>'.PHP_EOL;
 } else {
-    echo '<div class="content_area"><h2>Zur Zeit werden keine Events auf dem Server gelistet</h2></div>'.PHP_EOL;
+    echo '<div class="content_area"><h2>Zur Zeit werden keine Events auf dem Server gelistet.</h2></div>'.PHP_EOL;
 }
 echo '</div>'.PHP_EOL;
 

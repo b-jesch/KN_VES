@@ -86,7 +86,7 @@ class Event
 
     function persist() {
         $fh = fopen(DATA.$this->event['id'], 'w');
-        fwrite($fh, json_encode($this->event));
+        fwrite($fh, json_encode($this->event, JSON_PRETTY_PRINT));
         fclose($fh);
     }
 }

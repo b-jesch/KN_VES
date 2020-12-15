@@ -35,7 +35,7 @@ if (!defined('CONTEXT')) {
                 </td>
                 <td>
                     <input type="date" class="short" name="event_date" id="event_date" form="n" required
-                    title="Startdatum des Events, Pflichtfeld">
+                    title="Startdatum des Events, Pflichtfeld, Datumsformat YYYY-MM-DD für Firefox und Safari""> YYYY-MM-DD
                 </td>
             </tr>
             <tr>
