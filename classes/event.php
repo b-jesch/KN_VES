@@ -78,9 +78,10 @@ class Event
 
     function read_raw($event_id) {
         if (is_file(DATA.$event_id)) {
-            $fh = fopen(DATA . $event_id, 'r');
-            $this->raw_data = fgets($fh);
-            fclose($fh);
+            # $fh = fopen(DATA . $event_id, 'r');
+            # $this->raw_data = fgets($fh);
+            # fclose($fh);
+            $this->raw_data = file(DATA.$event_id);
         }
     }
 
