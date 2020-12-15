@@ -67,9 +67,8 @@ class Event
 
     function read($event_id) {
         if (is_file(DATA.$event_id)) {
-            $fh = fopen(DATA.$event_id, 'r');
-            $this->event = json_decode(fgets($fh), true);
-            fclose($fh);
+            $this->read_raw($event_id);
+            $this->event = json_decode($this->raw_data, true);
         } else {
             return false;
         }
@@ -78,15 +77,13 @@ class Event
 
     function read_raw($event_id) {
         if (is_file(DATA.$event_id)) {
-            $fh = fopen(DATA . $event_id, 'r');
-            $this->raw_data = fgets($fh);
-            fclose($fh);
+            $this->raw_data = file_get_contents(DATA.$event_id);
         }
     }
 
     function persist() {
         $fh = fopen(DATA.$this->event['id'], 'w');
-        fwrite($fh, json_encode($this->event));
+        fwrite($fh, json_encode($this->event, JSON_PRETTY_PRINT));
         fclose($fh);
     }
 }

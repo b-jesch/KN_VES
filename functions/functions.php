@@ -8,11 +8,9 @@ function scanFolder($folder, $exceptions)
 }
 
 function gerTF($datetime, $f_out, $f_in='Y-m-d H:i') {
-    if (DateTime::createFromFormat($f_in, $datetime)->format($f_out)) {
-        return DateTime::createFromFormat($f_in, $datetime)->format($f_out);
-    } else {
-        return $datetime;
-    }
+    $dt = DateTime::createFromFormat($f_in, $datetime)->format($f_out);
+    if ($dt) return $dt;
+    return $datetime;
 }
 
 function gerTFfromTimestamp($timestamp, $f_out='d.m.Y') {

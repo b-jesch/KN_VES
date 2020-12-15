@@ -31,7 +31,7 @@ define('API', 'api.php');
 
 # Views
 
-define ('DEFAULTPAGE', 'list.php');        # Bootstrap
+define ('DEFAULTPAGE', 'list.php');         # Bootstrap
 define ('ERRORPAGE', 'error.php');          # Fehlerseite
 
 define ('LISTVIEW', 'list.php');            # Eventliste
