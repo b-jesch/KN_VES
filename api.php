@@ -21,7 +21,7 @@ if (isset($_GET['playlist'])) {
     }
 
     header('Content-type: application/json');
-    echo json_encode($response);
+    echo json_encode($response, JSON_PRETTY_PRINT);
 
 } elseif (isset($_GET['maintenance']) or $argv[1] == 'maintenance') {
     $files = scanFolder(DATA, ['media', '.', '..']);
