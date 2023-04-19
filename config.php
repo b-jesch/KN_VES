@@ -12,8 +12,8 @@ const ROOT = 'https://events.kodinerds.net/';
 
 # Kodinerds User URL/Cookies/Links
 
-const KN_USER = 'https://www.kodinerds.net/index.php/User/';
-const KN_LOGIN = 'https://www.kodinerds.net/index.php/Login/';
+define('KN_USER', 'https://www.kodinerds.net/wcf/user/');
+define('KN_LOGIN', 'https://www.kodinerds.net/wcf/login/');
 define('COOKIE_PATH', $_SERVER['DOCUMENT_ROOT'].'/cookie.txt');
 
 const KN_VES_ANNOUNCEMENT = 'https://www.kodinerds.net/index.php/Thread/70207-RELEASE-KN-Video-Event-Service-und-Video-Event-Server/';
