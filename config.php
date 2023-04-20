@@ -14,6 +14,7 @@ const ROOT = 'https://events.kodinerds.net/';
 
 define('KN_USER', 'https://www.kodinerds.net/wcf/user/');
 define('KN_LOGIN', 'https://www.kodinerds.net/wcf/login/');
+define('KN_TWOFACTOR', 'https://www.kodinerds.net/wcf/multifactor-authentication');
 define('COOKIE_PATH', $_SERVER['DOCUMENT_ROOT'].'/cookie.txt');
 
 const KN_VES_ANNOUNCEMENT = 'https://www.kodinerds.net/index.php/Thread/70207-RELEASE-KN-Video-Event-Service-und-Video-Event-Server/';
