@@ -31,16 +31,28 @@ if (isset($c_pars['check'])) {
         /** Log in */
         curl_setopt($curlHandler, CURLOPT_POSTFIELDS, 'username=' . urlencode($_POST['username']) . '&password=' . urlencode($_POST['password']) . '&url=https://www.kodinerds.net/&t=' . $securityToken);
         $site = curl_exec($curlHandler);
+        
+        /** Get DeviceID for 2FA **/
+        if (preg_match('/<(.*?)id="device"(.*?)value=(.*?)>/', $site, $match, PREG_OFFSET_CAPTURE) != 1) {
+            $c_pars['site'] = 'login';
+        } else {
+            $device = str_replace('"', '', $match[3][0]);
+            curl_setopt($curlHandler, CURLOPT_URL, KN_TWOFACTOR);
+            curl_setopt($curlHandler, CURLOPT_POSTFIELDS, '&url=https://www.kodinerds.net/&t=' . $securityToken . '&onetimecode='. $_POST['twofactor']);
+            $site = curl_exec($curlHandler);
+        }
 
-        # if (preg_match('/(.*?)<a href="https:\/\/www\.kodinerds\.net\/index\.php\/User\/(.*?)\/" class="framed">/', $site, $user) != 1) {
-        if (preg_match('/(.*?)href="' . str_replace('/', '\/', KN_USER) . '(.*?)"/', $site, $response) != 1) {
+        /** Get UserID and Username **/
+        
+        if (preg_match('/<(.*?)href="' . str_replace('/', '\/', KN_USER) . '(.*?)">(.*?)<\/a>/', $site, $response) != 1) {
             $c_pars['site'] = 'login';
         } else {
             $user = str_replace('/', '', $response);
             $_SESSION['id'] = explode('-', $user[2])[0];
-            $_SESSION['user'] = explode('-', $user[2],2)[1];
+            $_SESSION['user'] = $user[3];
             $c_pars['site'] = 'list_event';
         }
+        
     }
 }
 
