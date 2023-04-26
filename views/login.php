@@ -40,7 +40,7 @@ if (!defined('CONTEXT')) {
                     <label for="twofactor">Mehrfaktor-Authentifizierung:</label>
                 </td>
                 <td>
-                    <input type="text" pattern="[0-9]*" minlength="6" maxlength="6" placeholder="123456" size="6" name="twofactor" id="twofactor" form="n">
+                    <input inputmode="numeric" type="text" pattern="[0-9]*" minlength="6" maxlength="6" placeholder="123456" size="6" name="twofactor" id="twofactor" form="n">
                 </td>
             </tr>
             <tr>
