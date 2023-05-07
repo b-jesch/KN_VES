@@ -4,6 +4,11 @@ require (CLASSES.'event.php');
 require (FUNCTIONS.'functions.php');
 
 $c_pars = array_merge($_POST, $_GET, $_FILES);
+
+/** Set Cookie to remember login **/
+$secure = true; // if you only want to receive the cookie over HTTPS
+$httponly = true; // prevent JavaScript access to session cookie
+session_set_cookie_params(2629743, '/', $_SERVER['HTTP_HOST'], $secure , $httponly);
 session_start();
 
 dump($c_pars);
