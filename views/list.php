@@ -17,6 +17,8 @@ echo '<h1>'.TITLE.'Events auflisten und eintragen</h1>';
     <form name="n" id="n" action="<?php echo CONTROLLER; ?>" method="post">
         <input type="submit" class="button" name="add" title="neuen Eintrag auf dem Server erstellen" value="Hinzufügen">
         <input type="hidden" name="site" value="collect">
+        <input type="submit" class="button_red" name="logout" title="Vom Event-Server abmelden" value="Abmelden" style="float: right;">
+        <input type="hidden" name="site" value="logout">
     </form>
 </div>
 

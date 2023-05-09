@@ -8,6 +8,13 @@ session_start();
 
 dump($c_pars);
 
+/** read cookie **/
+
+if (isset($_COOKIE['ID'])) {
+    $_SESSION['id'] = $_COOKIE['ID'];
+    $_SESSION['user'] = $_COOKIE['User'];
+}
+    
 if (!isset($_SESSION['id'])) $c_pars['site'] = 'login';
 
 if (isset($c_pars['check'])) {
@@ -50,6 +57,20 @@ if (isset($c_pars['check'])) {
             $user = str_replace('/', '', $response);
             $_SESSION['id'] = explode('-', $user[2])[0];
             $_SESSION['user'] = $user[3];
+            
+        /** Set Cookie **/
+        
+            $arr_cookie_options = array (
+                'expires' => time() + 60*60*24*30, 
+                'path' => '/', 
+                'domain' => $_SERVER['HTTP_HOST'], // leading dot for compatibility or use subdomain
+                'secure' => true,     // or false
+                'httponly' => true,    // or false
+                'samesite' => 'None' // None || Lax  || Strict
+                );
+            setcookie("User", $_SESSION['user'], $arr_cookie_options);
+            setcookie("ID", $_SESSION['id'], $arr_cookie_options);
+            
             $c_pars['site'] = 'list_event';
         }
         
@@ -125,7 +146,26 @@ switch ($c_pars['site']) {
     case 'login':
         $view = VIEWS.LOGIN;
         break;
-
+    
+    case 'logout':
+        $arr_cookie_options = array (
+            'expires' => time() -3100, 
+            'path' => '/', 
+            'domain' => $_SERVER['HTTP_HOST'], // leading dot for compatibility or use subdomain
+            'secure' => true,     // or false
+            'httponly' => true,    // or false
+            'samesite' => 'None' // None || Lax  || Strict
+            );
+        setcookie("ID", "", $arr_cookie_options);
+        setcookie("User", "", $arr_cookie_options);
+        unset($_COOKIE['ID']);
+        unset($_COOKIE['User']);
+        unset($_SESSION['user']);
+        unset($_SESSION['id']);
+        session_destroy();        
+        $view = VIEWS.LOGIN;
+        break;
+        
     default:
         # Bootstrap
         $view = VIEWS.DEFAULTPAGE;

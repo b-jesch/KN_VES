@@ -16,6 +16,7 @@ if (!defined('CONTEXT')) {
         <h1><?php echo TITLE.'Check In'; ?></h1>
         <p>Du bist ein Mitglied der Kodinerds Community und möchtest Informationen und Streaming-Details zu interessanten
             Events für das Kodinerds Streaming Addon einpflegen? Du kannst dich mit deinen Kodinerds Zugangsdaten einloggen.
+            Mehrfaktor-Authentifizierung nur wenn eingerichtet angeben.
         </p>
         <hr>
         <table>
