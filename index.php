@@ -4,9 +4,19 @@ require (CLASSES.'event.php');
 require (FUNCTIONS.'functions.php');
 
 $c_pars = array_merge($_POST, $_GET, $_FILES);
+
 session_start();
 
 dump($c_pars);
+
+/** read cookie **/
+
+if (isset($_COOKIE['ID'])) {
+    $_SESSION['id'] = decryptCookie(KEY, $_COOKIE['ID']);
+    $_SESSION['user'] = decryptCookie(KEY, $_COOKIE['Token']);
+}
+
+if (!is_numeric($_SESSION['id'])) $c_pars['site'] = 'logout'; //test is ID numeric
 
 if (!isset($_SESSION['id'])) $c_pars['site'] = 'login';
 
@@ -50,6 +60,21 @@ if (isset($c_pars['check'])) {
             $user = str_replace('/', '', $response);
             $_SESSION['id'] = explode('-', $user[2])[0];
             $_SESSION['user'] = $user[3];
+            
+        /** Set Cookie for remember Login **/
+
+            if (isset($_POST['remember'])) {
+                $arr_cookie_options = array (
+                    'expires' => time() + 60*60*24*30, 
+                    'path' => '/', 
+                    'domain' => $_SERVER['HTTP_HOST'], // leading dot for compatibility or use subdomain
+                    'secure' => true,     // or false
+                    'httponly' => true,    // or false
+                    'samesite' => 'None' // None || Lax  || Strict
+                    );
+                setcookie("Token", encryptCookie(KEY, $_SESSION['user']), $arr_cookie_options);
+                setcookie("ID", encryptCookie(KEY, $_SESSION['id']), $arr_cookie_options);
+            }
             $c_pars['site'] = 'list_event';
         }
         
@@ -125,12 +150,31 @@ switch ($c_pars['site']) {
     case 'login':
         $view = VIEWS.LOGIN;
         break;
-
+        
+    case 'logout':
+        $arr_cookie_options = array (
+            'expires' => time() -3100, 
+            'path' => '/', 
+            'domain' => $_SERVER['HTTP_HOST'], // leading dot for compatibility or use subdomain
+            'secure' => true,     // or false
+            'httponly' => true,    // or false
+            'samesite' => 'None' // None || Lax  || Strict
+            );
+        setcookie("ID", "", $arr_cookie_options);
+        setcookie("Token", "", $arr_cookie_options);
+        unset($_COOKIE['ID']);
+        unset($_COOKIE['Token']);
+        unset($_SESSION['user']);
+        unset($_SESSION['id']);
+        session_destroy();        
+        $view = VIEWS.LOGIN;
+        break;
+        
     default:
-        # Bootstrap
-        $view = VIEWS.DEFAULTPAGE;
-}
-
+    # Bootstrap
+    $view = VIEWS.DEFAULTPAGE;        
+}    
+   
 require VIEWS.HEADER;
 require $view;
 require VIEWS.FOOTER;

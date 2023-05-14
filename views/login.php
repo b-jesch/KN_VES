@@ -16,6 +16,7 @@ if (!defined('CONTEXT')) {
         <h1><?php echo TITLE.'Check In'; ?></h1>
         <p>Du bist ein Mitglied der Kodinerds Community und möchtest Informationen und Streaming-Details zu interessanten
             Events für das Kodinerds Streaming Addon einpflegen? Du kannst dich mit deinen Kodinerds Zugangsdaten einloggen.
+            Mehrfaktor-Authentifizierung nur wenn eingerichtet angeben.
         </p>
         <hr>
         <table>
@@ -41,6 +42,14 @@ if (!defined('CONTEXT')) {
                 </td>
                 <td>
                     <input inputmode="numeric" type="text" pattern="[0-9]*" minlength="6" maxlength="6" placeholder="123456" size="6" name="twofactor" id="twofactor" form="n">
+                </td>
+            </tr>
+            <tr>
+                <td class="desc_form">
+                    <label for="remember">Angemeldet bleiben:</label>
+                </td>
+                <td>
+                    <input type="checkbox" name="remember" value="1" form="n">
                 </td>
             </tr>
             <tr>
