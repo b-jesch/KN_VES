@@ -65,5 +65,9 @@ const RETENTION_TIME_PERMA = 2592000;   # 30 Days
 
 # global MVC-Context
 
-const CONTEXT = true;
+const('CONTEXT' = true);
+
+# encrypt Key
+
+define('KEY', '12345678901234567890123456789012'); # 32 bytes = 256 bit key
 

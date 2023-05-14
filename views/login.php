@@ -45,6 +45,14 @@ if (!defined('CONTEXT')) {
                 </td>
             </tr>
             <tr>
+                <td class="desc_form">
+                    <label for="remember">Angemeldet bleiben:</label>
+                </td>
+                <td>
+                    <input type="checkbox" name="remember" value="1" form="n">
+                </td>
+            </tr>
+            <tr>
                 <td colspan="2" class="center">
                     <input class="button" type="submit" name='check' title="mit den Daten von kodinerds.net einchecken" value="Check In">
                     <input class="button" type="submit" name='abort' value="Abbrechen">
